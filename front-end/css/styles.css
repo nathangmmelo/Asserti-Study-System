@@ -1,10 +1,10 @@
 :root {
   --azul-escuro: #0f2a5c;
-  --azul: #1a73e8;
+  --azul: #1767c5;
   --azul-claro: #eef4fd;
   --borda: #dce7f7;
   --texto: #1c2a44;
-  --texto-suave: #6b7a96;
+  --texto-suave: #56657c;
   --branco: #fff;
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   color: var(--texto);
@@ -150,7 +150,7 @@ a:focus-visible {
   margin: 1.375rem 0 0;
   padding: 0;
   color: var(--texto-suave);
-  font-size: .6875rem;
+  font-size: .75rem;
   list-style: none;
 }
 
@@ -166,10 +166,16 @@ a:focus-visible {
   max-width: 28rem;
   min-height: 18rem;
   margin: 0 auto;
-  padding: 2.5rem 2rem 0;
+  padding: 2.5rem 2rem 1rem;
   background: #dfe9f8;
   border: 1px solid var(--borda);
   border-radius: 1rem;
+  animation: ilustracao-chegada 420ms cubic-bezier(.23, 1, .32, 1) both;
+}
+
+@keyframes ilustracao-chegada {
+  from { filter: blur(5px); transform: translateY(.5rem); }
+  to { filter: blur(0); transform: translateY(0); }
 }
 
 .tela {
@@ -256,7 +262,7 @@ a:focus-visible {
   grid-column: 1 / -1;
   margin: 0;
   color: var(--texto-suave);
-  font-size: .6875rem;
+  font-size: .75rem;
 }
 
 .base-computador {
@@ -288,7 +294,7 @@ a:focus-visible {
 .cabecalho-secao > p:last-child {
   margin: .5rem 0 0;
   color: var(--texto-suave);
-  font-size: .8125rem;
+  font-size: .875rem;
   line-height: 1.5;
 }
 
@@ -300,20 +306,19 @@ a:focus-visible {
 
 .cartao-tema {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 11rem;
   padding: 1.125rem 1rem;
   background: var(--azul-claro);
   border: 1px solid var(--borda);
   border-radius: .75rem;
+  transition: transform 220ms cubic-bezier(.23, 1, .32, 1), box-shadow 220ms ease;
 }
 
-.numero {
-  position: absolute;
-  top: 1.25rem;
-  right: 1rem;
-  color: var(--texto-suave);
-  font-size: .625rem;
-  font-weight: 600;
+.cartao-tema:hover {
+  transform: translateY(-.2rem);
+  box-shadow: 0 .5rem 1rem rgb(15 42 92 / 10%);
 }
 
 .icone-tema {
@@ -346,8 +351,99 @@ a:focus-visible {
 .cartao-tema p {
   margin: 0;
   color: var(--texto-suave);
-  font-size: .6875rem;
+  font-size: .75rem;
   line-height: 1.5;
+}
+
+.link-tema {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .5rem;
+  margin-top: auto;
+  padding-top: .875rem;
+  color: var(--azul);
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+.link-tema span {
+  font-size: 1rem;
+}
+
+.aulas-temas {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.tema-conteudo {
+  display: grid;
+  grid-template-columns: minmax(12rem, .8fr) minmax(0, 1.2fr);
+  column-gap: 2rem;
+  align-items: start;
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--borda);
+  scroll-margin-top: 6rem;
+}
+
+.tema-resumo h3 {
+  margin: 0;
+  color: var(--azul-escuro);
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.tema-resumo p {
+  max-width: 28rem;
+  margin: .5rem 0 0;
+  color: var(--texto-suave);
+  font-size: .875rem;
+  line-height: 1.55;
+}
+
+.lista-aulas {
+  display: grid;
+  gap: .5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lista-aulas li {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .5rem .75rem;
+  color: var(--texto);
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: .5rem;
+  font-size: .8125rem;
+  line-height: 1.4;
+}
+
+.status-aula {
+  flex: none;
+  color: var(--texto-suave);
+  font-size: .75rem;
+}
+
+.voltar-topo {
+  min-height: 2.75rem;
+  grid-column: 2;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  margin-top: .375rem;
+  padding: .375rem 0 .375rem .75rem;
+  color: var(--azul);
+  font-size: .8125rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: .15em;
 }
 
 .sobre {
@@ -369,7 +465,7 @@ a:focus-visible {
 .sobre div > p:last-child {
   margin: .375rem 0 0;
   color: var(--texto-suave);
-  font-size: .6875rem;
+  font-size: .75rem;
   line-height: 1.5;
 }
 
@@ -396,7 +492,7 @@ a:focus-visible {
 }
 
 .rodape .marca { font-size: 1.0625rem; }
-.rodape p { color: var(--texto-suave); font-size: .6875rem; }
+.rodape p { color: var(--texto-suave); font-size: .75rem; }
 
 /* Telas de acesso */
 .pagina-acesso {
@@ -538,6 +634,8 @@ a:focus-visible {
   .apresentacao-texto { max-width: 35rem; }
   .ilustracao { min-height: 17rem; }
   .lista-temas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .aulas-temas { padding-inline: 1.5rem; }
+  .tema-conteudo { grid-template-columns: minmax(10rem, .7fr) minmax(0, 1.3fr); column-gap: 1.25rem; }
   .sobre { margin-inline: 1.5rem; }
 }
 
@@ -546,22 +644,28 @@ a:focus-visible {
   .marca { font-size: 1.25rem; }
   .menu { order: 1; width: 100%; gap: 1.5rem; margin: 0; overflow-x: auto; }
   .menu a { flex: none; padding-block: .5rem; }
-  .botao-menor { min-height: 2.25rem; padding-inline: .75rem; font-size: .625rem; }
+  .botao-menor { min-height: 2.5rem; padding-inline: .75rem; font-size: .75rem; }
   .apresentacao { gap: 1.25rem; padding: 1.75rem 1.25rem; }
   .apresentacao h1 { font-size: 2.375rem; }
   .resumo { font-size: .875rem; }
-  .beneficios { gap: .5rem .875rem; font-size: .625rem; }
-  .ilustracao { min-height: 15rem; padding: 2rem 1.25rem 0; }
+  .beneficios { gap: .5rem .875rem; font-size: .75rem; }
+  .ilustracao { min-height: 15rem; padding: 2rem 1.25rem 1rem; }
   .temas { padding: 1rem 1rem 3rem; }
   .cabecalho-secao h2 { font-size: 1.375rem; }
   .lista-temas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .625rem; }
   .cartao-tema { min-height: 12rem; padding: .875rem .75rem; }
-  .cartao-tema h3 { font-size: .8125rem; }
-  .cartao-tema p { font-size: .625rem; }
-  .numero { top: 1.0625rem; right: .75rem; }
+  .cartao-tema h3 { font-size: .875rem; }
+  .cartao-tema p { font-size: .75rem; }
+  .aulas-temas { padding: 0 1rem 3rem; }
+  .tema-conteudo { grid-template-columns: 1fr; row-gap: .875rem; padding: 1.25rem 0; }
+  .tema-resumo h3 { font-size: 1rem; }
+  .tema-resumo p { font-size: .8125rem; }
+  .lista-aulas li { align-items: flex-start; padding: .625rem .75rem; font-size: .75rem; }
+  .status-aula { font-size: .6875rem; text-align: right; }
+  .voltar-topo { grid-column: 1; justify-self: start; margin-top: 0; padding-left: 0; }
   .sobre { min-height: 7rem; margin: 0 1rem 2rem; padding: 1rem; }
   .sobre h2 { font-size: 1rem; }
-  .sobre div > p:last-child { font-size: .625rem; }
+  .sobre div > p:last-child { font-size: .75rem; }
   .rodape { padding-inline: 1rem; }
   .cabecalho-acesso { min-height: 4rem; padding-inline: 1rem; }
   .cabecalho-acesso .marca { font-size: 1.25rem; }
@@ -578,4 +682,6 @@ a:focus-visible {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .ilustracao { animation: none; }
+  .cartao-tema { transition: none; }
 }
