@@ -299,6 +299,7 @@ a:focus-visible {
 }
 
 .cartao-tema {
+  position: relative;
   min-height: 11rem;
   padding: 1.125rem 1rem;
   background: var(--azul-claro);
@@ -307,13 +308,36 @@ a:focus-visible {
 }
 
 .numero {
+  position: absolute;
+  top: 1.25rem;
+  right: 1rem;
   color: var(--texto-suave);
   font-size: .625rem;
   font-weight: 600;
 }
 
+.icone-tema {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  color: var(--branco);
+  background: var(--azul);
+  border-radius: .625rem;
+}
+
+.icone-tema svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 .cartao-tema h3 {
-  margin: .75rem 0 .375rem;
+  margin: 1rem 0 .375rem;
   color: var(--azul-escuro);
   font-size: .875rem;
   line-height: 1.35;
@@ -374,6 +398,139 @@ a:focus-visible {
 .rodape .marca { font-size: 1.0625rem; }
 .rodape p { color: var(--texto-suave); font-size: .6875rem; }
 
+/* Telas de acesso */
+.pagina-acesso {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.cabecalho-acesso {
+  min-height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .75rem max(1.5rem, calc((100% - 1100px) / 2));
+  background: rgb(255 255 255 / 96%);
+  border-bottom: 1px solid var(--borda);
+}
+
+.link-voltar,
+.alternativa-acesso a,
+.linha-recuperacao a {
+  color: var(--azul);
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: .15em;
+}
+
+.area-acesso {
+  width: 100%;
+  flex: 1;
+  display: grid;
+  place-items: center;
+  padding: 2rem 1rem;
+}
+
+.cartao-acesso {
+  width: min(100%, 28rem);
+  padding: 2rem;
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 1rem;
+  box-shadow: 0 .75rem 2.5rem rgb(15 42 92 / 8%);
+}
+
+.cartao-acesso h1 {
+  margin: 0;
+  color: var(--azul-escuro);
+  font-size: 1.75rem;
+  line-height: 1.2;
+  letter-spacing: -.03em;
+}
+
+.texto-acesso {
+  margin: .625rem 0 1.5rem;
+  color: var(--texto-suave);
+  font-size: .9375rem;
+  line-height: 1.55;
+}
+
+.aviso-demonstracao {
+  margin: 0 0 1.25rem;
+  padding: .75rem .875rem;
+  color: var(--azul-escuro);
+  background: var(--azul-claro);
+  border-left: .2rem solid var(--azul);
+  border-radius: .25rem;
+  font-size: .8125rem;
+  line-height: 1.5;
+}
+
+.formulario-acesso {
+  display: grid;
+  gap: 1rem;
+}
+
+.campo-acesso label {
+  display: block;
+  margin-bottom: .4rem;
+  color: var(--azul-escuro);
+  font-size: .875rem;
+  font-weight: 600;
+}
+
+.campo-acesso input {
+  width: 100%;
+  min-height: 3rem;
+  padding: .75rem .875rem;
+  color: var(--texto);
+  background: #f4f8fe;
+  border: 1px solid var(--borda);
+  border-radius: .5625rem;
+  font: inherit;
+  font-size: 1rem;
+}
+
+.campo-acesso input::placeholder {
+  color: #74839c;
+  opacity: 1;
+}
+
+.campo-acesso input:focus-visible {
+  outline: 3px solid rgb(26 115 232 / 28%);
+  outline-offset: 1px;
+  border-color: var(--azul);
+  background: var(--branco);
+}
+
+.linha-recuperacao {
+  margin-top: -.25rem;
+  text-align: right;
+}
+
+.botao-formulario {
+  width: 100%;
+  min-height: 3rem;
+  margin-top: .25rem;
+  font: inherit;
+  font-size: .9375rem;
+}
+
+.botao-formulario:disabled {
+  cursor: not-allowed;
+  opacity: .68;
+}
+
+.alternativa-acesso {
+  margin: 1.5rem 0 0;
+  color: var(--texto-suave);
+  font-size: .875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
 @media (max-width: 800px) {
   .cabecalho { padding-inline: 1.25rem; }
   .menu { gap: 1.125rem; margin-left: .5rem; }
@@ -398,13 +555,20 @@ a:focus-visible {
   .temas { padding: 1rem 1rem 3rem; }
   .cabecalho-secao h2 { font-size: 1.375rem; }
   .lista-temas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .625rem; }
-  .cartao-tema { min-height: 11.5rem; padding: .875rem .75rem; }
+  .cartao-tema { min-height: 12rem; padding: .875rem .75rem; }
   .cartao-tema h3 { font-size: .8125rem; }
   .cartao-tema p { font-size: .625rem; }
+  .numero { top: 1.0625rem; right: .75rem; }
   .sobre { min-height: 7rem; margin: 0 1rem 2rem; padding: 1rem; }
   .sobre h2 { font-size: 1rem; }
   .sobre div > p:last-child { font-size: .625rem; }
   .rodape { padding-inline: 1rem; }
+  .cabecalho-acesso { min-height: 4rem; padding-inline: 1rem; }
+  .cabecalho-acesso .marca { font-size: 1.25rem; }
+  .link-voltar { font-size: .8125rem; }
+  .area-acesso { place-items: start center; padding: 1.5rem 1rem; }
+  .cartao-acesso { padding: 1.5rem 1.25rem; }
+  .cartao-acesso h1 { font-size: 1.5rem; }
 }
 
 @media (max-width: 360px) {
