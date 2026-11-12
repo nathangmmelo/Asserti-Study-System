@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fe">
+  <title>Recuperar acesso | ASSERTI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-acesso">
+  <header class="cabecalho-acesso">
+    <a class="marca" href="index.html">ASSERTI</a>
+    <a class="link-voltar" href="index.html">Voltar ao início</a>
+  </header>
+  <main class="area-acesso">
+    <section class="cartao-acesso" aria-labelledby="titulo-recuperacao">
+      <p class="sobretitulo">RECUPERAÇÃO DE ACESSO</p>
+      <h1 id="titulo-recuperacao">Esqueceu sua senha?</h1>
+      <p class="texto-acesso">Informe o e-mail da sua conta. Vamos usar esse endereço para a recuperação quando o serviço estiver disponível.</p>
+
+      <p class="aviso-demonstracao" id="aviso-recuperacao">Demonstração: o envio está desativado; nenhum e-mail será enviado e os dados não serão armazenados.</p>
+
+      <form class="formulario-acesso" aria-describedby="aviso-recuperacao" autocomplete="off">
+        <div class="campo-acesso">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
+        </div>
+        <button class="botao botao-formulario" type="button" disabled>Recuperar acesso</button>
+      </form>
+
+      <p class="alternativa-acesso"><a href="login.html">Voltar para entrar</a></p>
+    </section>
+  </main>
+</body>
+</html>

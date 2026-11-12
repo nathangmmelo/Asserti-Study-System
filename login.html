@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fe">
+  <title>Entrar | ASSERTI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="pagina-acesso">
+  <header class="cabecalho-acesso">
+    <a class="marca" href="index.html">ASSERTI</a>
+    <a class="link-voltar" href="index.html">Voltar ao início</a>
+  </header>
+  <main class="area-acesso">
+    <section class="cartao-acesso" aria-labelledby="titulo-login">
+      <p class="sobretitulo">BEM-VINDO DE VOLTA</p>
+      <h1 id="titulo-login">Entrar</h1>
+      <p class="texto-acesso">Acesse sua conta para continuar aprendendo.</p>
+
+      <p class="aviso-demonstracao" id="aviso-login">Demonstração: o envio está desativado; os dados não serão enviados nem armazenados.</p>
+
+      <form class="formulario-acesso" aria-describedby="aviso-login" autocomplete="off">
+        <div class="campo-acesso">
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
+        </div>
+        <div class="campo-acesso">
+          <label for="senha">Senha</label>
+          <input id="senha" type="password" autocomplete="new-password" placeholder="Digite sua senha" required>
+        </div>
+        <div class="linha-recuperacao"><a href="recuperar-acesso.html">Esqueci minha senha</a></div>
+        <button class="botao botao-formulario" type="button" disabled>Entrar</button>
+      </form>
+
+      <p class="alternativa-acesso">Ainda não tem conta? <a href="cadastro.html">Criar conta</a></p>
+    </section>
+  </main>
+</body>
+</html>
