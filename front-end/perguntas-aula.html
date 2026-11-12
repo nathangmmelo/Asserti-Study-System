@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fe">
+  <meta name="description" content="Revise o que aprendeu sobre teclado e mouse.">
+  <title>Atividade da aula | ASSERTI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="marca" href="index.html" aria-label="ASSERTI, início">ASSERTI</a>
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#temas">Temas</a>
+      <a href="dashboard.html">Meu aprendizado</a>
+    </nav>
+    <a class="botao botao-menor" href="login.html">Entrar/login</a>
+  </header>
+
+  <main class="pagina-perguntas" id="conteudo">
+    <nav class="trilha-aula" aria-label="Você está em">
+      <a href="index.html">Início</a><span aria-hidden="true">/</span>
+      <a href="aula-computador.html">Conhecendo o teclado e o mouse</a><span aria-hidden="true">/</span>
+      <span aria-current="page">Perguntas da aula</span>
+    </nav>
+
+    <header class="cabecalho-perguntas">
+      <p class="sobretitulo">ATIVIDADE DA AULA · DEMONSTRAÇÃO</p>
+      <h1>Teste o que você aprendeu</h1>
+      <p>Responda às perguntas sobre a aula que acabou de estudar.</p>
+      <span class="selo-demo">Suas respostas não serão salvas</span>
+    </header>
+
+    <div class="andamento-perguntas">
+      <div class="rotulo-andamento"><span>Atividade da aula</span><span id="contador" aria-live="polite">1 de 3</span></div>
+      <progress id="progresso-perguntas" value="1" max="3" aria-label="Progresso da atividade">1 de 3</progress>
+    </div>
+
+    <form id="form-perguntas" class="cartao-pergunta">
+      <fieldset aria-describedby="mensagem-pergunta">
+        <legend id="texto-pergunta" tabindex="-1">Qual tecla apaga o caractere que está antes do cursor?</legend>
+        <div id="lista-respostas" class="lista-respostas"></div>
+      </fieldset>
+      <p id="mensagem-pergunta" class="mensagem-pergunta" role="status"></p>
+      <div class="acoes-pergunta">
+        <a class="botao-secundario" href="aula-computador.html">← Voltar para a aula</a>
+        <button class="botao botao-avancar" type="submit" id="botao-avancar">Próxima pergunta →</button>
+      </div>
+    </form>
+
+    <section class="resultado-perguntas" id="resultado-perguntas" hidden tabindex="-1" aria-labelledby="titulo-resultado">
+      <h2 id="titulo-resultado">Atividade concluída!</h2>
+      <p id="resumo-resultado"></p>
+      <p>Esta atividade é uma demonstração. Seu resultado não foi salvo.</p>
+      <a class="botao" href="aula-computador.html">Voltar para a aula</a>
+    </section>
+  </main>
+
+  <script>
+    const perguntas = [
+      {
+        texto: 'Qual tecla apaga o caractere que está antes do cursor?',
+        respostas: ['Enter', 'Backspace', 'Espaço', 'Tab'], correta: 1
+      },
+      {
+        texto: 'O que o cursor mostra enquanto você digita?',
+        respostas: ['Onde o próximo caractere será escrito', 'O volume do computador', 'A velocidade da internet', 'O tamanho da tela'], correta: 0
+      },
+      {
+        texto: 'Como selecionar um item com o mouse?',
+        respostas: ['Deslizar o mouse sem apontar', 'Pressionar e soltar o botão esquerdo uma vez', 'Desligar o monitor', 'Pressionar a tecla Espaço'], correta: 1
+      }
+    ];
+    let atual = 0;
+    let acertos = 0;
+    const form = document.querySelector('#form-perguntas');
+    const legenda = document.querySelector('#texto-pergunta');
+    const opcoes = document.querySelector('#lista-respostas');
+    const contador = document.querySelector('#contador');
+    const progresso = document.querySelector('#progresso-perguntas');
+    const mensagem = document.querySelector('#mensagem-pergunta');
+    const botao = document.querySelector('#botao-avancar');
+
+    function mostrarPergunta() {
+      const pergunta = perguntas[atual];
+      legenda.textContent = `${atual + 1}. ${pergunta.texto}`;
+      contador.textContent = `${atual + 1} de ${perguntas.length}`;
+      progresso.value = atual + 1;
+      opcoes.replaceChildren(...pergunta.respostas.map((resposta, indice) => {
+        const rotulo = document.createElement('label');
+        rotulo.className = 'opcao-resposta';
+        const radio = document.createElement('input');
+        radio.type = 'radio';
+        radio.name = 'resposta';
+        radio.value = indice;
+        const texto = document.createElement('span');
+        texto.textContent = resposta;
+        rotulo.append(radio, texto);
+        return rotulo;
+      }));
+      mensagem.textContent = '';
+      botao.textContent = atual === perguntas.length - 1 ? 'Concluir atividade' : 'Próxima pergunta →';
+    }
+
+    form.addEventListener('submit', (evento) => {
+      evento.preventDefault();
+      const selecionada = form.querySelector('input[name="resposta"]:checked');
+      if (!selecionada) {
+        mensagem.textContent = 'Escolha uma alternativa para continuar.';
+        form.querySelector('input[name="resposta"]').focus();
+        return;
+      }
+      if (Number(selecionada.value) === perguntas[atual].correta) acertos += 1;
+      atual += 1;
+      if (atual < perguntas.length) {
+        mostrarPergunta();
+        legenda.focus();
+        return;
+      }
+      form.hidden = true;
+      document.querySelector('.andamento-perguntas').hidden = true;
+      const resultado = document.querySelector('#resultado-perguntas');
+      document.querySelector('#resumo-resultado').textContent = `Você acertou ${acertos} de ${perguntas.length} perguntas.`;
+      resultado.hidden = false;
+      resultado.focus();
+    });
+
+    mostrarPergunta();
+  </script>
+</body>
+</html>
