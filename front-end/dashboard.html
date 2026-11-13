@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fe">
+  <title>Meu aprendizado | ASSERTI</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="cabecalho">
+    <a class="marca" href="index.html" aria-label="ASSERTI, início">ASSERTI</a>
+    <nav class="menu" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="index.html#temas">Temas</a>
+      <a href="perfil.html">Meu perfil</a>
+    </nav>
+    <a class="botao botao-menor" href="primeiro-acesso.html">Ver primeiro acesso</a>
+  </header>
+
+  <main class="painel-aluno" id="inicio">
+    <section class="saudacao-painel" aria-labelledby="titulo-painel">
+      <div>
+        <h1 id="titulo-painel">Olá, Ana!</h1>
+        <p>Veja seu progresso e continue aprendendo no seu ritmo.</p>
+      </div>
+      <span class="selo-demo">Demonstração · dados fictícios</span>
+    </section>
+
+    <p class="aviso-painel">Este painel usa dados fictícios. O progresso é ilustrativo e não é salvo.</p>
+
+    <section class="resumo-painel" aria-label="Progresso e aula recente">
+      <article class="bloco-painel progresso-painel">
+        <h2>Seu progresso</h2>
+        <p class="texto-progresso"><strong>3</strong> de <strong>14</strong> aulas concluídas</p>
+        <div class="barra-progresso" role="progressbar" aria-label="Progresso de Ana" aria-valuemin="0" aria-valuemax="14" aria-valuenow="3">
+          <span class="progresso-tres"></span>
+        </div>
+        <p class="legenda-progresso">Progresso ilustrativo da demonstração</p>
+      </article>
+
+      <article class="bloco-painel continuar-painel">
+        <h2>Continuar de onde parei</h2>
+        <p class="tema-atual">Uso do Computador</p>
+        <p>Última aula concluída: <strong>Conhecendo o teclado e o mouse</strong></p>
+        <a class="link-painel" href="aula-computador.html">Rever esta aula <span aria-hidden="true">→</span></a>
+      </article>
+    </section>
+
+    <section class="proxima-aula" aria-labelledby="titulo-proxima-aula">
+      <div>
+        <p class="contexto-aula">PRÓXIMO CONTEÚDO · USO DO COMPUTADOR</p>
+        <h2 id="titulo-proxima-aula">Abrindo e organizando arquivos</h2>
+        <p>Este conteúdo será preparado na próxima etapa.</p>
+      </div>
+      <div class="estado-aula">
+        <span class="indisponivel">Em preparação</span>
+        <a class="link-painel" href="index.html#tema-computador">Ver no catálogo <span aria-hidden="true">→</span></a>
+      </div>
+    </section>
+
+    <section class="temas-painel" aria-labelledby="titulo-temas-painel">
+      <div class="cabecalho-painel">
+        <h2 id="titulo-temas-painel">Seus temas</h2>
+        <a href="index.html#temas">Ver catálogo completo <span aria-hidden="true">→</span></a>
+      </div>
+      <ul class="atalhos-temas">
+        <li><a href="index.html#tema-computador"><span>Uso do Computador</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-internet"><span>Internet</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-email"><span>E-mail</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-produtividade"><span>Produtividade</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-seguranca"><span>Segurança Digital</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-servicos"><span>Serviços Digitais</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+        <li><a href="index.html#tema-cidadania"><span>Cidadania Digital</span><small>2 exemplos de aula</small><b aria-hidden="true">→</b></a></li>
+      </ul>
+    </section>
+
+    <p class="volta-home"><a href="index.html">← Voltar ao início</a></p>
+  </main>
+</body>
+</html>
