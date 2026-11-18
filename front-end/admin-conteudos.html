@@ -6,6 +6,7 @@
   <meta name="theme-color" content="#f4f8fe">
   <title>Administração de conteúdos | ASSERTI</title>
   <link rel="stylesheet" href="css/styles.css">
+  <script src="js/admin-conteudos.js" defer></script>
 </head>
 <body>
   <header class="cabecalho">
@@ -30,24 +31,23 @@
       </div>
       <span class="selo-demo">Área administrativa · demonstração</span>
     </section>
-    <p class="aviso-painel">As operações desta tela são simuladas. As informações não são salvas. Autenticação e permissões serão definidas na etapa de backend.</p>
+    <p class="aviso-painel">Dados de demonstração. As alterações valem apenas enquanto esta página estiver aberta. Ao recarregar, a lista volta aos exemplos iniciais.</p>
+    <noscript><p class="aviso-painel">Ative o JavaScript para gerenciar os conteúdos de demonstração.</p></noscript>
 
     <section class="admin-secao" id="lista-conteudos" tabindex="-1" aria-labelledby="titulo-lista">
       <div class="cabecalho-painel">
         <h2 id="titulo-lista">Lista de conteúdos</h2>
-        <a class="botao" href="#incluir-conteudo">Incluir conteúdo <span aria-hidden="true">+</span></a>
+        <a class="botao" id="abrir-inclusao" href="#incluir-conteudo">Incluir conteúdo <span aria-hidden="true">+</span></a>
       </div>
-      <ul class="lista-admin-conteudos">
+      <p class="nota-admin" id="resultado-admin" role="status"></p>
+      <ul class="lista-admin-conteudos"></ul>
+      <p class="estado-vazio" hidden><strong>Lista vazia</strong><br>Nenhum conteúdo cadastrado. Use “Incluir conteúdo” para adicionar um item.</p>
+      <template id="modelo-conteudo">
         <li class="item-admin-conteudo">
-          <div><h3>Conhecendo o teclado e o mouse</h3><p>Uso do Computador <span aria-hidden="true">·</span> Texto</p></div>
+          <div><h3></h3><p></p></div>
           <div class="acoes-admin"><a href="#editar-conteudo">Editar</a><a href="#confirmar-exclusao">Excluir</a></div>
         </li>
-        <li class="item-admin-conteudo">
-          <div><h3>Navegação segura na internet</h3><p>Internet <span aria-hidden="true">·</span> Vídeo</p></div>
-          <div class="acoes-admin"><a href="#editar-conteudo">Editar</a><a href="#confirmar-exclusao">Excluir</a></div>
-        </li>
-      </ul>
-      <p class="estado-vazio"><strong>Lista vazia</strong><br>Quando não houver conteúdos cadastrados, eles aparecerão aqui.</p>
+      </template>
     </section>
 
     <section class="admin-formularios" aria-label="Formulários de conteúdo">
@@ -55,37 +55,36 @@
         <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
         <h2 id="titulo-incluir">Incluir conteúdo</h2>
         <form class="formulario-admin" aria-describedby="aviso-incluir" autocomplete="off">
-          <p class="nota-admin" id="aviso-incluir">O formulário é demonstrativo e não salva informações.</p>
+          <p class="nota-admin" id="aviso-incluir">O novo conteúdo será incluído na lista de demonstração.</p>
           <div class="campo-admin"><label for="titulo-novo">Título</label><input id="titulo-novo" name="titulo" type="text" required></div>
           <div class="campo-admin"><label for="tema-novo">Tema</label><select id="tema-novo" name="tema" required><option value="">Selecione um tema</option><option>Uso do Computador</option><option>Internet</option><option>E-mail</option><option>Produtividade</option><option>Segurança Digital</option><option>Serviços Digitais</option><option>Cidadania Digital</option></select></div>
           <div class="campo-admin"><label for="formato-novo">Formato</label><select id="formato-novo" name="formato" required><option value="">Selecione um formato</option><option>Texto</option><option>Vídeo</option></select></div>
           <div class="campo-admin"><label for="conteudo-novo">Conteúdo</label><textarea id="conteudo-novo" name="conteudo" rows="5" required></textarea></div>
           <div class="campo-admin"><label for="url-nova">URL da fonte do vídeo <span class="ajuda-campo">(para conteúdo em vídeo)</span></label><input id="url-nova" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <button class="botao" type="button" disabled>Incluir conteúdo</button>
+          <button class="botao" type="submit" disabled>Incluir conteúdo</button>
         </form>
       </section>
 
-      <section class="cartao-admin" id="editar-conteudo" tabindex="-1" aria-labelledby="titulo-editar">
-        <p class="sobretitulo">OPERAÇÃO SIMULADA · CONTEÚDO DE EXEMPLO</p>
+      <section class="cartao-admin" id="editar-conteudo" tabindex="-1" aria-labelledby="titulo-editar" hidden>
+        <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
         <h2 id="titulo-editar">Editar conteúdo</h2>
         <form class="formulario-admin" aria-describedby="aviso-editar" autocomplete="off">
-          <p class="nota-admin" id="aviso-editar">Exemplo selecionado: Conhecendo o teclado e o mouse. Alterações não serão salvas.</p>
-          <div class="campo-admin"><label for="titulo-edicao">Título</label><input id="titulo-edicao" name="titulo" type="text" value="Conhecendo o teclado e o mouse" required></div>
+          <p class="nota-admin" id="aviso-editar">Conteúdo selecionado: <strong id="nome-edicao"></strong></p>
+          <div class="campo-admin"><label for="titulo-edicao">Título</label><input id="titulo-edicao" name="titulo" type="text" required></div>
           <div class="campo-admin"><label for="tema-edicao">Tema</label><select id="tema-edicao" name="tema" required><option>Uso do Computador</option><option>Internet</option><option>E-mail</option><option>Produtividade</option><option>Segurança Digital</option><option>Serviços Digitais</option><option>Cidadania Digital</option></select></div>
           <div class="campo-admin"><label for="formato-edicao">Formato</label><select id="formato-edicao" name="formato" required><option>Texto</option><option>Vídeo</option></select></div>
-          <div class="campo-admin"><label for="conteudo-edicao">Conteúdo</label><textarea id="conteudo-edicao" name="conteudo" rows="5" required>Conheça as teclas principais e aprenda a apontar, clicar e abrir itens com o mouse.</textarea></div>
+          <div class="campo-admin"><label for="conteudo-edicao">Conteúdo</label><textarea id="conteudo-edicao" name="conteudo" rows="5" required></textarea></div>
           <div class="campo-admin"><label for="url-edicao">URL da fonte do vídeo <span class="ajuda-campo">(para conteúdo em vídeo)</span></label><input id="url-edicao" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <button class="botao" type="button" disabled>Salvar alterações</button>
+          <button class="botao" type="submit" disabled>Salvar alterações</button>
         </form>
       </section>
     </section>
 
-    <section class="confirmacao-admin" id="confirmar-exclusao" tabindex="-1" aria-labelledby="titulo-confirmacao">
+    <section class="confirmacao-admin" id="confirmar-exclusao" tabindex="-1" aria-labelledby="titulo-confirmacao" hidden>
       <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
       <h2 id="titulo-confirmacao">Confirmar exclusão</h2>
-      <p>Deseja excluir o conteúdo <strong>“Conhecendo o teclado e o mouse”</strong>?</p>
-      <p>Esta demonstração não exclui nem altera dados.</p>
-      <div class="acoes-confirmacao"><button class="botao botao-perigo" type="button" disabled>Excluir conteúdo</button><a class="botao-secundario" href="#lista-conteudos">Cancelar e voltar à lista</a></div>
+      <p>Deseja excluir o conteúdo <strong id="nome-exclusao"></strong> da lista de demonstração?</p>
+      <div class="acoes-confirmacao"><button class="botao botao-perigo" type="button" disabled>Excluir conteúdo</button><a class="botao-secundario" id="cancelar-exclusao" href="#lista-conteudos">Cancelar e voltar à lista</a></div>
     </section>
     <p class="volta-home"><a href="index.html">← Voltar ao início</a></p>
   </main>

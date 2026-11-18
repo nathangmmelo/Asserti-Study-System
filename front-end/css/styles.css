@@ -1107,6 +1107,7 @@ kbd { padding: .1rem .35rem; color: var(--azul-escuro); background: #f2f5fa; bor
 .admin-secao { margin-bottom: 1.25rem; }
 .admin-secao h2, .cartao-admin h2, .confirmacao-admin h2 { margin: 0; color: var(--azul-escuro); font-size: 1.25rem; line-height: 1.35; }
 .lista-admin-conteudos { display: grid; gap: .75rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.lista-admin-conteudos:empty { display: none; }
 .item-admin-conteudo { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-width: 0; padding: 1rem; border: 1px solid var(--borda); border-radius: .625rem; }
 .item-admin-conteudo h3 { margin: 0; color: var(--azul-escuro); font-size: 1rem; overflow-wrap: anywhere; }
 .item-admin-conteudo p { margin: .375rem 0 0; color: var(--texto-suave); font-size: .8125rem; }
@@ -1119,18 +1120,20 @@ kbd { padding: .1rem .35rem; color: var(--azul-escuro); background: #f2f5fa; bor
 .cartao-admin h2 { margin-bottom: 1rem; }
 .formulario-admin { display: grid; gap: 1rem; }
 .nota-admin { margin: 0; color: var(--texto-suave); font-size: .8125rem; line-height: 1.5; }
+#nome-edicao { overflow-wrap: anywhere; }
+#resultado-admin:not(:empty) { margin-top: .75rem; }
 .campo-admin label { display: block; margin-bottom: .4rem; color: var(--azul-escuro); font-size: .875rem; font-weight: 600; }
 .campo-admin input, .campo-admin select, .campo-admin textarea { width: 100%; min-height: 3rem; padding: .75rem .875rem; color: var(--texto); background: #f4f8fe; border: 1px solid var(--borda); border-radius: .5625rem; font: inherit; font-size: 1rem; }
 .campo-admin textarea { min-height: 8rem; resize: vertical; }
 .campo-admin input:focus-visible, .campo-admin select:focus-visible, .campo-admin textarea:focus-visible { outline: 3px solid rgb(26 115 232 / 28%); outline-offset: 1px; border-color: var(--azul); background: var(--branco); }
 .ajuda-campo { color: var(--texto-suave); font-size: .8125rem; font-weight: 400; }
 .formulario-admin button:disabled, .botao-perigo:disabled { cursor: not-allowed; opacity: .68; }
-.confirmacao-admin { scroll-margin-top: 6rem; }
+.admin-secao, .cartao-admin, .confirmacao-admin { scroll-margin-top: 6rem; }
 .admin-secao:focus-visible, .cartao-admin:focus-visible, .confirmacao-admin:focus-visible { outline: 3px solid #f1b82d; outline-offset: 3px; }
 .confirmacao-admin > p:not(.sobretitulo) { color: var(--texto-suave); font-size: .9375rem; line-height: 1.6; }
 .confirmacao-admin strong { color: var(--azul-escuro); overflow-wrap: anywhere; }
 .acoes-confirmacao { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
-.botao-perigo { border: 0; cursor: not-allowed; }
+.botao-perigo { border: 0; }
 .admin-conteudos .trilha-aula { margin-bottom: 1rem; }
 .admin-conteudos .volta-home { margin-top: 1.25rem; }
 
