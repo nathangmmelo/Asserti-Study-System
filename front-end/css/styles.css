@@ -942,6 +942,63 @@ a:focus-visible {
   margin: 1.5rem 0 0;
 }
 
+.configuracoes-perfil {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .625rem;
+  margin-top: 1rem;
+  color: var(--texto-suave);
+  font-size: .875rem;
+}
+
+.configuracoes-perfil .botao:disabled {
+  color: var(--texto-suave);
+  background: var(--azul-claro);
+  border: 1px solid var(--borda);
+  cursor: not-allowed;
+}
+
+.secao-perfil {
+  max-width: 42rem;
+  margin-top: 1rem;
+}
+
+.lista-perfil,
+.estado-vazio-perfil {
+  margin: .75rem 0 0;
+  font-size: .9375rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.lista-perfil {
+  padding-inline-start: 1.25rem;
+}
+
+.lista-perfil > li + li {
+  margin-top: .5rem;
+}
+
+.medalhas-perfil {
+  padding: 0;
+  list-style: none;
+}
+
+.medalhas-perfil > li {
+  display: flex;
+  gap: .5rem;
+}
+
+.estado-vazio-perfil {
+  color: var(--texto-suave);
+}
+
+.lista-perfil:not(:has(> li)),
+.lista-perfil:has(> li) + .estado-vazio-perfil {
+  display: none;
+}
+
 /* Aula demonstrativa */
 .link-aula-catalogo {
   min-height: 2.75rem;
