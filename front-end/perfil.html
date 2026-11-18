@@ -22,7 +22,7 @@
     <section class="saudacao-painel" aria-labelledby="titulo-perfil">
       <div>
         <h1 id="titulo-perfil">Meu perfil</h1>
-        <p>Confira as informações desta conta de demonstração.</p>
+        <p>Confira os dados da conta, os cursos e as medalhas desta demonstração.</p>
       </div>
       <span class="selo-demo">Dados fictícios</span>
     </section>
@@ -40,6 +40,28 @@
         </div>
       </dl>
       <p class="aviso-painel">Perfil de demonstração. Nenhum dado pessoal real é usado ou salvo.</p>
+      <div class="configuracoes-perfil">
+        <button class="botao" type="button" disabled aria-describedby="status-configuracoes">Configurações</button>
+        <span id="status-configuracoes">Em breve</span>
+      </div>
+    </section>
+
+    <section class="bloco-painel secao-perfil" aria-labelledby="titulo-cursos">
+      <h2 id="titulo-cursos">Cursos em andamento</h2>
+      <ul class="lista-perfil">
+        <li>Uso do Computador</li>
+        <li>Internet</li>
+      </ul>
+      <p class="estado-vazio-perfil">Você ainda não iniciou nenhum curso</p>
+    </section>
+
+    <section class="bloco-painel secao-perfil" aria-labelledby="titulo-medalhas">
+      <h2 id="titulo-medalhas">Medalhas</h2>
+      <ul class="lista-perfil medalhas-perfil" role="list">
+        <li><span aria-hidden="true">🏅</span> <span>E-mail</span></li>
+        <li><span aria-hidden="true">🏅</span> <span>Segurança Digital</span></li>
+      </ul>
+      <p class="estado-vazio-perfil">Suas medalhas aparecerão aqui quando você concluir um curso</p>
     </section>
 
     <p class="volta-home"><a href="dashboard.html">← Voltar ao aprendizado</a></p>
