@@ -1,0 +1,854 @@
+{
+  "categorias": {
+    "computador-internet": "Computador e Internet",
+    "cursos-formacao": "Cursos e formação continuada",
+    "seguranca": "Segurança digital",
+    "cidadania": "Cidadania digital",
+    "servicos-publicos": "Serviços públicos digitais",
+    "email-google": "E-mail e ferramentas Google",
+    "produtividade-microsoft": "Produtividade Microsoft",
+    "videos": "Vídeos"
+  },
+  "cursos": [
+    {
+      "titulo": "Informática básica",
+      "tema": "Computador e Internet",
+      "conteudo": "Conheça teclado, mouse, área de trabalho, programas, arquivos e pastas.",
+      "url": "https://edu.gcfglobal.org/pt/informatica-basica/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "GCFGlobal"
+        ],
+        [
+          "Tipo",
+          "Site / curso"
+        ]
+      ],
+      "aviso": "O link abre um curso de informática em inglês.",
+      "questoes": [
+        {
+          "texto": "Qual dispositivo move o ponteiro na tela?",
+          "opcoes": [
+            "Mouse",
+            "Teclado"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Hardware e software",
+      "tema": "Computador e Internet",
+      "conteudo": "Entenda a diferença entre as partes físicas do computador e seus programas.",
+      "url": "https://edu.gcfglobal.org/pt/informatica-basica/o-que-sao-hardware-esoftware-/1/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "GCFGlobal"
+        ],
+        [
+          "Tipo",
+          "Site / curso"
+        ]
+      ],
+      "aviso": "O link abre o curso geral em inglês.",
+      "questoes": [
+        {
+          "texto": "Qual destes é hardware?",
+          "opcoes": [
+            "Editor de texto",
+            "Monitor"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Como usar a Internet",
+      "tema": "Computador e Internet",
+      "conteudo": "Aprenda sobre navegadores, buscas, downloads e uploads.",
+      "url": "https://edu.gcfglobal.org/pt/como-usar-a-internet/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "GCFGlobal"
+        ],
+        [
+          "Tipo",
+          "Site / curso"
+        ]
+      ],
+      "aviso": "O link abre a lista geral de cursos.",
+      "questoes": [
+        {
+          "texto": "Para que serve um navegador?",
+          "opcoes": [
+            "Abrir páginas da internet",
+            "Carregar a bateria"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Como trabalhar com computadores e dispositivos móveis",
+      "tema": "Cursos e formação continuada",
+      "conteudo": "Curso sobre habilidades digitais, segurança e ferramentas do Office.",
+      "url": "https://www.escolavirtual.gov.br/curso/1130",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Escola Virtual de Governo (EV.G)"
+        ],
+        [
+          "Tipo",
+          "Curso gratuito com certificado"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Qual ferramenta ajuda a organizar dados em colunas?",
+          "opcoes": [
+            "Câmera",
+            "Planilha"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Portal da EV.G",
+      "tema": "Cursos e formação continuada",
+      "conteudo": "Conheça o portal de capacitação e cursos gratuitos da Escola Virtual de Governo.",
+      "url": "https://www.escolavirtual.gov.br/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Escola Virtual de Governo (EV.G)"
+        ],
+        [
+          "Tipo",
+          "Portal de cursos"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Onde procurar uma capacitação da EV.G?",
+          "opcoes": [
+            "No catálogo da Escola Virtual de Governo",
+            "No histórico de chamadas"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Cursos de inclusão sociodigital",
+      "tema": "Cursos e formação continuada",
+      "conteudo": "Encontre cursos gratuitos oferecidos pela Escola Virtual Conecta.",
+      "url": "https://www.gov.br/pt-br/servicos/utilizar-a-escola-inclusao-sociodigitalconecta",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Escola Virtual Conecta / Serpro"
+        ],
+        [
+          "Tipo",
+          "Curso gratuito"
+        ]
+      ],
+      "aviso": "A página pode estar indisponível.",
+      "questoes": [
+        {
+          "texto": "Antes de iniciar um curso online, o que conferir?",
+          "opcoes": [
+            "Apenas a cor do botão",
+            "O tema e os requisitos"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Cartilha de Segurança para Internet",
+      "tema": "Segurança digital",
+      "conteudo": "Consulte orientações sobre sites confiáveis e navegação mais segura.",
+      "url": "https://cartilha.cert.br/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "CERT.br"
+        ],
+        [
+          "Tipo",
+          "Texto / cartilha"
+        ],
+        [
+          "Crédito",
+          "CERT.br/NIC.br"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "O que fazer com um link inesperado?",
+          "opcoes": [
+            "Conferir a origem antes de abrir",
+            "Digitar a senha imediatamente"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Fascículos de segurança",
+      "tema": "Segurança digital",
+      "conteudo": "Veja temas como senhas, golpes, phishing, privacidade e redes sociais.",
+      "url": "https://cartilha.cert.br/fasciculos/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "CERT.br"
+        ],
+        [
+          "Tipo",
+          "Texto / cartilha"
+        ],
+        [
+          "Crédito",
+          "CERT.br/NIC.br"
+        ],
+        [
+          "Licença dos fascículos",
+          "CC BY-NC-ND 4.0"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "O que ajuda a proteger uma conta?",
+          "opcoes": [
+            "Repetir a senha do e-mail",
+            "Usar uma senha exclusiva"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Guia Cidadão Digital",
+      "tema": "Cidadania digital",
+      "conteudo": "Leia sobre privacidade, desinformação, respeito e convivência online.",
+      "url": "https://www.safernet.org.br/cidadao-digital/guia.pdf",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "SaferNet"
+        ],
+        [
+          "Tipo",
+          "Texto / guia em PDF"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Antes de compartilhar uma notícia, o que fazer?",
+          "opcoes": [
+            "Verificar a fonte",
+            "Repassar sem ler"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Internet no Brasil",
+      "tema": "Cidadania digital",
+      "conteudo": "Consulte dados, infraestrutura da web e boas práticas sobre a internet no Brasil.",
+      "url": "https://www.nic.br/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "NIC.br"
+        ],
+        [
+          "Tipo",
+          "Site / dados e boas práticas"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Onde consultar informações sobre a internet brasileira?",
+          "opcoes": [
+            "Na lixeira do computador",
+            "No site do NIC.br"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Portal gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Acesse o portal oficial de serviços e informações do governo.",
+      "url": "https://www.gov.br/",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ],
+        [
+          "Licença",
+          "CC BY-ND 3.0"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Onde buscar serviços digitais do governo federal?",
+          "opcoes": [
+            "No portal gov.br",
+            "Em links recebidos de desconhecidos"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Serviços do gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Encontre serviços públicos digitais, cadastros e formulários.",
+      "url": "https://www.gov.br/pt-br/servicos",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ],
+        [
+          "Licença",
+          "CC BY-ND 3.0"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Para localizar um serviço público online, qual o primeiro passo?",
+          "opcoes": [
+            "Enviar a senha por mensagem",
+            "Pesquisar seu nome no portal oficial"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "O que é a Conta gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Entenda para que serve a conta usada para acessar serviços digitais do governo.",
+      "url": "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ],
+        [
+          "Licença",
+          "CC BY-ND 3.0"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Para que serve a Conta gov.br?",
+          "opcoes": [
+            "Identificar a pessoa em serviços digitais",
+            "Aumentar a velocidade da conexão"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Criar sua conta gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Veja o caminho oficial para criar uma conta no gov.br.",
+      "url": "https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ],
+        [
+          "Licença",
+          "CC BY-ND 3.0"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Onde iniciar a criação da Conta gov.br?",
+          "opcoes": [
+            "Em um anúncio que cobra pela senha",
+            "No canal oficial do governo"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Níveis da Conta gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Conheça os níveis Bronze, Prata e Ouro da conta.",
+      "url": "https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveisda-conta-govbr",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ]
+      ],
+      "aviso": "A página pode estar indisponível.",
+      "questoes": [
+        {
+          "texto": "Quais são os níveis da Conta gov.br?",
+          "opcoes": [
+            "Bronze, Prata e Ouro",
+            "Básico, Médio e Mestre"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Segurança da conta gov.br",
+      "tema": "Serviços públicos digitais",
+      "conteudo": "Veja orientações oficiais para proteger sua conta.",
+      "url": "https://www.gov.br/governodigital/pt-br/identidade/conta-govbr/seguranca-da-conta/seguranca-da-conta",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "gov.br"
+        ],
+        [
+          "Tipo",
+          "Site"
+        ]
+      ],
+      "aviso": "A página pode estar indisponível.",
+      "questoes": [
+        {
+          "texto": "Como proteger o acesso à Conta gov.br?",
+          "opcoes": [
+            "Compartilhar o código recebido",
+            "Ativar a verificação em duas etapas quando disponível"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Criar uma Conta Google",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Veja a ajuda oficial para criar uma Conta Google.",
+      "url": "https://support.google.com/accounts/answer/27441?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Que informação deve ficar em segredo ao criar a conta?",
+          "opcoes": [
+            "A senha",
+            "O nome do serviço"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do Gmail",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Consulte orientações sobre envio, recebimento e organização de mensagens.",
+      "url": "https://support.google.com/mail/?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Para organizar mensagens no Gmail, o que pode ser usado?",
+          "opcoes": [
+            "Brilho da tela",
+            "Marcadores"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Anexos no Gmail",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Aprenda como enviar arquivos junto com uma mensagem de e-mail.",
+      "url": "https://support.google.com/mail/answer/6584?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "O que significa anexar um arquivo?",
+          "opcoes": [
+            "Enviar o arquivo junto com a mensagem",
+            "Apagar o destinatário"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do Google Docs",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Consulte a ajuda oficial para criar e editar documentos.",
+      "url": "https://support.google.com/docs/?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Qual tarefa é feita no Google Docs?",
+          "opcoes": [
+            "Trocar a bateria",
+            "Editar documentos de texto"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do Google Drive",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Consulte a ajuda oficial para guardar e organizar arquivos.",
+      "url": "https://support.google.com/drive/?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Para que serve o Google Drive?",
+          "opcoes": [
+            "Guardar e compartilhar arquivos",
+            "Instalar memória física"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Google Workspace",
+      "tema": "E-mail e ferramentas Google",
+      "conteudo": "Conheça ferramentas colaborativas para o trabalho e os estudos.",
+      "url": "https://support.google.com/a/users/?hl=pt-BR",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Google"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Como duas pessoas podem editar o mesmo documento?",
+          "opcoes": [
+            "Desligando a conexão",
+            "Compartilhando acesso de edição"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do Word",
+      "tema": "Produtividade Microsoft",
+      "conteudo": "Consulte materiais sobre edição básica de textos.",
+      "url": "https://support.microsoft.com/pt-br/word",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Microsoft Support"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Que tipo de trabalho é feito no Word?",
+          "opcoes": [
+            "Redigir um documento",
+            "Armazenar cabos"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do Excel",
+      "tema": "Produtividade Microsoft",
+      "conteudo": "Consulte materiais sobre planilhas.",
+      "url": "https://support.microsoft.com/pt-br/excel",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Microsoft Support"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Qual recurso do Excel calcula valores?",
+          "opcoes": [
+            "Transições de slides",
+            "Fórmulas"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do PowerPoint",
+      "tema": "Produtividade Microsoft",
+      "conteudo": "Consulte materiais sobre apresentações.",
+      "url": "https://support.microsoft.com/pt-br/powerpoint",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Microsoft Support"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Qual ferramenta é voltada à criação de slides?",
+          "opcoes": [
+            "PowerPoint",
+            "Calculadora"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Ajuda do OneDrive",
+      "tema": "Produtividade Microsoft",
+      "conteudo": "Consulte materiais sobre armazenamento de arquivos.",
+      "url": "https://support.microsoft.com/pt-br/onedrive",
+      "formato": "Texto",
+      "creditos": [
+        [
+          "Plataforma",
+          "Microsoft Support"
+        ],
+        [
+          "Tipo",
+          "Site de ajuda oficial"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Onde o OneDrive permite guardar arquivos?",
+          "opcoes": [
+            "Apenas em um disco de papel",
+            "Na nuvem"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Como criar uma conta de e-mail",
+      "tema": "Vídeos",
+      "conteudo": "Assista a um vídeo curto sobre a criação de uma conta de e-mail.",
+      "url": "https://www.youtube.com/shorts/eZdb_yHm0uI",
+      "formato": "Vídeo",
+      "creditos": [
+        [
+          "Plataforma",
+          "YouTube"
+        ],
+        [
+          "Tipo",
+          "Vídeo (Short)"
+        ]
+      ],
+      "aviso": "",
+      "questoes": [
+        {
+          "texto": "Ao criar uma conta de e-mail, o que protege o acesso?",
+          "opcoes": [
+            "Uma senha exclusiva",
+            "Uma senha publicada no perfil"
+          ],
+          "correta": 0
+        }
+      ]
+    },
+    {
+      "titulo": "Conhecendo o teclado e o mouse",
+      "tema": "Computador e Internet",
+      "formato": "Texto",
+      "url": "",
+      "conteudo": "Localize as teclas principais. As letras ficam na parte central do teclado. A tecla Enter confirma uma ação ou inicia uma nova linha. A tecla Espaço separa palavras.\n\nCorrija uma letra. A tecla Backspace apaga o caractere que está antes do cursor. O cursor é a marca que mostra onde o próximo caractere será escrito.\n\nMova o ponteiro. Deslize o mouse sobre a mesa para mover a seta na tela. Aponte para um item antes de clicar.\n\nSelecione com um clique. Pressione e solte o botão esquerdo do mouse uma vez para selecionar. Em muitos computadores, dois cliques rápidos abrem um arquivo ou programa.",
+      "questoes": [
+        {
+          "texto": "Qual tecla apaga o caractere que está antes do cursor?",
+          "opcoes": [
+            "Enter",
+            "Backspace",
+            "Espaço",
+            "Tab"
+          ],
+          "correta": 1
+        },
+        {
+          "texto": "O que o cursor mostra enquanto você digita?",
+          "opcoes": [
+            "Onde o próximo caractere será escrito",
+            "O volume do computador",
+            "A velocidade da internet",
+            "O tamanho da tela"
+          ],
+          "correta": 0
+        },
+        {
+          "texto": "Como selecionar um item com o mouse?",
+          "opcoes": [
+            "Deslizar o mouse sem apontar",
+            "Pressionar e soltar o botão esquerdo uma vez",
+            "Desligar o monitor",
+            "Pressionar a tecla Espaço"
+          ],
+          "correta": 1
+        }
+      ]
+    },
+    {
+      "titulo": "Navegação segura na internet",
+      "tema": "Segurança digital",
+      "formato": "Texto",
+      "url": "https://cartilha.cert.br/",
+      "conteudo": "Confira o endereço de um site e identifique links suspeitos antes de clicar.",
+      "questoes": [
+        {
+          "texto": "Como verificar um link antes de acessar?",
+          "opcoes": [
+            "Conferir o endereço e a origem",
+            "Confiar apenas na imagem"
+          ],
+          "correta": 0
+        }
+      ]
+    }
+  ]
+}
