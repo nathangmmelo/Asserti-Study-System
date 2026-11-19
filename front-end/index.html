@@ -7,17 +7,11 @@
   <meta name="description" content="Materiais oficiais de inclusão digital para aprender no seu ritmo.">
   <link rel="icon" href="data:,">
   <title>ASSERTI | Inclusão Digital</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body class="home">
   <a class="pular-conteudo" href="#inicio">Ir para o conteúdo</a>
-  <header class="cabecalho">
-    <a class="marca" href="#inicio" aria-label="ASSERTI, início">ASSERTI</a>
-    <nav class="menu" aria-label="Navegação principal">
-      <a href="#inicio" aria-current="page">Início</a><a href="#temas">Categorias</a><a href="#catalogo">Materiais</a><a href="#projeto">Sobre o projeto</a><a href="dashboard.html">Ver demonstração</a><a href="perfil.html">Meu perfil</a>
-    </nav>
-    <a class="botao botao-menor" href="login.html">Entrar <span aria-hidden="true">→</span></a>
-  </header>
+  <!-- header -->
   <main id="inicio" tabindex="-1">
     <section class="apresentacao" aria-labelledby="titulo-principal">
       <div class="apresentacao-texto"><h1 id="titulo-principal">Aprenda de<br><span>onde estiver</span></h1><p class="resumo">Encontre materiais oficiais para usar computadores, internet e serviços online com mais autonomia e segurança.</p><a class="botao" href="#temas">Escolher uma categoria <span aria-hidden="true">→</span></a><ul class="beneficios"><li>Escolha um assunto</li><li>Acesse a fonte oficial</li><li>Aprenda no seu ritmo</li></ul></div>
@@ -37,52 +31,13 @@
       </div>
     </section>
     <section class="aulas-temas catalogo" id="catalogo" tabindex="-1" aria-labelledby="titulo-catalogo">
-      <div class="cabecalho-secao"><h2 id="titulo-catalogo">Materiais para estudar</h2><p>Os materiais são de outras instituições. Cada link abre o site da fonte em uma nova aba.</p></div>
+      <div class="cabecalho-secao"><h2 id="titulo-catalogo">Materiais para estudar</h2><p>Os materiais são de outras instituições. Abra uma aula para estudar e responder à atividade.</p></div>
       <article class="categoria-conteudo" id="computador-internet" tabindex="-1" aria-labelledby="titulo-computador-internet">
         <header class="tema-resumo">
           <h3 id="titulo-computador-internet">Computador e Internet</h3>
           <p>Comece pelos recursos básicos do computador e pela navegação na internet.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Informática básica</h4>
-            <p>Conheça teclado, mouse, área de trabalho, programas, arquivos e pastas.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>GCFGlobal</dd></div>
-              <div><dt>Tipo</dt><dd>Site / curso</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-1">O link abre um curso de informática em inglês.</p>
-            <a class="link-externo" href="https://edu.gcfglobal.org/pt/informatica-basica/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Informática básica (abre em nova aba)" aria-describedby="destino-1">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Hardware e software</h4>
-            <p>Entenda a diferença entre as partes físicas do computador e seus programas.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>GCFGlobal</dd></div>
-              <div><dt>Tipo</dt><dd>Site / curso</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-2">O link abre o curso geral em inglês.</p>
-            <a class="link-externo" href="https://edu.gcfglobal.org/pt/informatica-basica/o-que-sao-hardware-esoftware-/1/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Hardware e software (abre em nova aba)" aria-describedby="destino-2">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Como usar a Internet</h4>
-            <p>Aprenda sobre navegadores, buscas, downloads e uploads.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>GCFGlobal</dd></div>
-              <div><dt>Tipo</dt><dd>Site / curso</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-3">O link abre a lista geral de cursos.</p>
-            <a class="link-externo" href="https://edu.gcfglobal.org/pt/como-usar-a-internet/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Como usar a Internet (abre em nova aba)" aria-describedby="destino-3">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{computador-internet}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -91,44 +46,7 @@
           <h3 id="titulo-cursos-formacao">Cursos e formação continuada</h3>
           <p>Explore plataformas de cursos gratuitos para seguir aprendendo.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Como trabalhar com computadores e dispositivos móveis</h4>
-            <p>Curso sobre habilidades digitais, segurança e ferramentas do Office.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Escola Virtual de Governo (EV.G)</dd></div>
-              <div><dt>Tipo</dt><dd>Curso gratuito com certificado</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.escolavirtual.gov.br/curso/1130" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Como trabalhar com computadores e dispositivos móveis (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Portal da EV.G</h4>
-            <p>Conheça o portal de capacitação e cursos gratuitos da Escola Virtual de Governo.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Escola Virtual de Governo (EV.G)</dd></div>
-              <div><dt>Tipo</dt><dd>Portal de cursos</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.escolavirtual.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Portal da EV.G (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Cursos de inclusão sociodigital</h4>
-            <p>Encontre cursos gratuitos oferecidos pela Escola Virtual Conecta.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Escola Virtual Conecta / Serpro</dd></div>
-              <div><dt>Tipo</dt><dd>Curso gratuito</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-6">A página pode estar indisponível.</p>
-            <a class="link-externo" href="https://www.gov.br/pt-br/servicos/utilizar-a-escola-inclusao-sociodigitalconecta" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Cursos de inclusão sociodigital (abre em nova aba)" aria-describedby="destino-6">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{cursos-formacao}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -137,34 +55,7 @@
           <h3 id="titulo-seguranca">Segurança digital</h3>
           <p>Aprenda a reconhecer riscos e a proteger suas informações na internet.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Cartilha de Segurança para Internet</h4>
-            <p>Consulte orientações sobre sites confiáveis e navegação mais segura.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>CERT.br</dd></div>
-              <div><dt>Tipo</dt><dd>Texto / cartilha</dd></div>
-              <div class="material-credito"><dt>Crédito</dt><dd>CERT.br/NIC.br</dd></div>
-            </dl>
-            <a class="link-externo" href="https://cartilha.cert.br/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Cartilha de Segurança para Internet (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Fascículos de segurança</h4>
-            <p>Veja temas como senhas, golpes, phishing, privacidade e redes sociais.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>CERT.br</dd></div>
-              <div><dt>Tipo</dt><dd>Texto / cartilha</dd></div>
-              <div class="material-credito"><dt>Crédito</dt><dd>CERT.br/NIC.br</dd></div>
-              <div class="material-credito"><dt>Licença dos fascículos</dt><dd>CC BY-NC-ND 4.0</dd></div>
-            </dl>
-            <a class="link-externo" href="https://cartilha.cert.br/fasciculos/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Fascículos de segurança (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{seguranca}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -173,31 +64,7 @@
           <h3 id="titulo-cidadania">Cidadania digital</h3>
           <p>Use a internet com responsabilidade, respeito e atenção às informações que circulam.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Guia Cidadão Digital</h4>
-            <p>Leia sobre privacidade, desinformação, respeito e convivência online.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>SaferNet</dd></div>
-              <div><dt>Tipo</dt><dd>Texto / guia em PDF</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.safernet.org.br/cidadao-digital/guia.pdf" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Guia Cidadão Digital (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Internet no Brasil</h4>
-            <p>Consulte dados, infraestrutura da web e boas práticas sobre a internet no Brasil.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>NIC.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site / dados e boas práticas</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.nic.br/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Internet no Brasil (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{cidadania}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -206,85 +73,7 @@
           <h3 id="titulo-servicos-publicos">Serviços públicos digitais</h3>
           <p>Saiba onde acessar serviços públicos e informações sobre a Conta gov.br.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Portal gov.br</h4>
-            <p>Acesse o portal oficial de serviços e informações do governo.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-              <div class="material-credito"><dt>Licença</dt><dd>CC BY-ND 3.0</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.gov.br/" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Portal gov.br (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Serviços do gov.br</h4>
-            <p>Encontre serviços públicos digitais, cadastros e formulários.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-              <div class="material-credito"><dt>Licença</dt><dd>CC BY-ND 3.0</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.gov.br/pt-br/servicos" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Serviços do gov.br (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>O que é a Conta gov.br</h4>
-            <p>Entenda para que serve a conta usada para acessar serviços digitais do governo.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-              <div class="material-credito"><dt>Licença</dt><dd>CC BY-ND 3.0</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: O que é a Conta gov.br (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Criar sua conta gov.br</h4>
-            <p>Veja o caminho oficial para criar uma conta no gov.br.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-              <div class="material-credito"><dt>Licença</dt><dd>CC BY-ND 3.0</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.gov.br/pt-br/servicos/criar-sua-conta-gov.br" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Criar sua conta gov.br (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Níveis da Conta gov.br</h4>
-            <p>Conheça os níveis Bronze, Prata e Ouro da conta.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-15">A página pode estar indisponível.</p>
-            <a class="link-externo" href="https://www.gov.br/governodigital/pt-br/identidade/conta-gov-br/niveisda-conta-govbr" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Níveis da Conta gov.br (abre em nova aba)" aria-describedby="destino-15">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Segurança da conta gov.br</h4>
-            <p>Veja orientações oficiais para proteger sua conta.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>gov.br</dd></div>
-              <div><dt>Tipo</dt><dd>Site</dd></div>
-            </dl>
-            <p class="aviso-destino" id="destino-16">A página pode estar indisponível.</p>
-            <a class="link-externo" href="https://www.gov.br/governodigital/pt-br/identidade/conta-govbr/seguranca-da-conta/seguranca-da-conta" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Segurança da conta gov.br (abre em nova aba)" aria-describedby="destino-16">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{servicos-publicos}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -293,79 +82,7 @@
           <h3 id="titulo-email-google">E-mail e ferramentas Google</h3>
           <p>Consulte a ajuda oficial para criar uma conta, usar e-mail e organizar arquivos.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Criar uma Conta Google</h4>
-            <p>Veja a ajuda oficial para criar uma Conta Google.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/accounts/answer/27441?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Criar uma Conta Google (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do Gmail</h4>
-            <p>Consulte orientações sobre envio, recebimento e organização de mensagens.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/mail/?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do Gmail (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Anexos no Gmail</h4>
-            <p>Aprenda como enviar arquivos junto com uma mensagem de e-mail.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/mail/answer/6584?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Anexos no Gmail (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do Google Docs</h4>
-            <p>Consulte a ajuda oficial para criar e editar documentos.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/docs/?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do Google Docs (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do Google Drive</h4>
-            <p>Consulte a ajuda oficial para guardar e organizar arquivos.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/drive/?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do Google Drive (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Google Workspace</h4>
-            <p>Conheça ferramentas colaborativas para o trabalho e os estudos.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Google</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.google.com/a/users/?hl=pt-BR" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Google Workspace (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{email-google}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -374,55 +91,7 @@
           <h3 id="titulo-produtividade-microsoft">Produtividade Microsoft</h3>
           <p>Consulte a ajuda oficial para trabalhar com documentos, planilhas, apresentações e arquivos.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Ajuda do Word</h4>
-            <p>Consulte materiais sobre edição básica de textos.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Microsoft Support</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.microsoft.com/pt-br/word" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do Word (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do Excel</h4>
-            <p>Consulte materiais sobre planilhas.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Microsoft Support</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.microsoft.com/pt-br/excel" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do Excel (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do PowerPoint</h4>
-            <p>Consulte materiais sobre apresentações.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Microsoft Support</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.microsoft.com/pt-br/powerpoint" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do PowerPoint (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
-          <article class="cartao-material">
-            <h4>Ajuda do OneDrive</h4>
-            <p>Consulte materiais sobre armazenamento de arquivos.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>Microsoft Support</dd></div>
-              <div><dt>Tipo</dt><dd>Site de ajuda oficial</dd></div>
-            </dl>
-            <a class="link-externo" href="https://support.microsoft.com/pt-br/onedrive" target="_blank" rel="noopener noreferrer" aria-label="Acessar material: Ajuda do OneDrive (abre em nova aba)">
-              <span>Acessar material <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{produtividade-microsoft}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
@@ -431,25 +100,13 @@
           <h3 id="titulo-videos">Vídeos</h3>
           <p>Use este vídeo como material complementar. Ele será aberto na plataforma original.</p>
         </header>
-        <div class="lista-materiais">
-          <article class="cartao-material">
-            <h4>Como criar uma conta de e-mail</h4>
-            <p>Assista a um vídeo curto sobre a criação de uma conta de e-mail.</p>
-            <dl>
-              <div><dt>Plataforma</dt><dd>YouTube</dd></div>
-              <div><dt>Tipo</dt><dd>Vídeo (Short)</dd></div>
-            </dl>
-            <a class="link-externo" href="https://www.youtube.com/shorts/eZdb_yHm0uI" target="_blank" rel="noopener noreferrer" aria-label="Assistir ao vídeo: Como criar uma conta de e-mail (abre em nova aba)">
-              <span>Assistir ao vídeo <span aria-hidden="true">↗</span></span>
-              <span class="aviso-nova-aba" aria-hidden="true">Abre em nova aba</span>
-            </a>
-          </article>
+        <div class="lista-materiais">{{videos}}
         </div>
         <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
       </article>
     </section>
     <section class="sobre" id="projeto" tabindex="-1" aria-labelledby="titulo-projeto"><div><h2 id="titulo-projeto">O digital também é seu.</h2><p>Uma iniciativa de inclusão digital da ASSERTI, CPL·TI e UNIMAR — Fábrica de Projetos.</p></div><a href="#inicio" aria-label="Voltar ao início">↑</a></section>
   </main>
-  <footer class="rodape"><a class="marca" href="#inicio">ASSERTI</a><p>Inclusão digital para todos.</p></footer>
+  <!-- footer -->
 </body>
 </html>

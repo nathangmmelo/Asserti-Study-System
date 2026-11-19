@@ -1,21 +1,6 @@
 "use strict";
 
-const conteudos = [
-  {
-    titulo: "Conhecendo o teclado e o mouse",
-    tema: "Uso do Computador",
-    formato: "Texto",
-    conteudo: "Conheça as teclas principais e aprenda a apontar, clicar e abrir itens com o mouse.",
-    url: "",
-  },
-  {
-    titulo: "Navegação segura na internet",
-    tema: "Internet",
-    formato: "Vídeo",
-    conteudo: "Aprenda a conferir o endereço de um site e identificar links suspeitos antes de clicar.",
-    url: "",
-  },
-];
+let conteudos = [];
 
 const secaoLista = document.querySelector("#lista-conteudos");
 const lista = document.querySelector(".lista-admin-conteudos");
@@ -50,6 +35,7 @@ function selecionarConteudo(evento, item, secao) {
 
     for (const [campo, valor] of Object.entries(item)) {
       const controle = formularioEdicao.elements.namedItem(campo);
+      if (!controle) continue;
       controle.value = valor;
       controle.setCustomValidity("");
     }
@@ -91,7 +77,7 @@ function configurarFormulario(formulario, salvar) {
     evento.target.setCustomValidity("");
   });
 
-  formulario.addEventListener("submit", (evento) => {
+  formulario.addEventListener("submit", async (evento) => {
     evento.preventDefault();
 
     for (const campo of ["titulo", "conteudo"]) {
@@ -107,23 +93,46 @@ function configurarFormulario(formulario, salvar) {
     for (const [campo, valor] of new FormData(formulario)) {
       dados[campo] = valor.trim();
     }
-    salvar(dados);
-    formulario.reset();
+    const botao = formulario.querySelector('button[type="submit"]');
+    botao.disabled = true;
+    try {
+      await salvar(dados);
+      formulario.reset();
+    } catch (erro) {
+      const aviso = formulario.querySelector("[role=status]");
+      aviso.textContent = erro.message;
+    } finally {
+      botao.disabled = false;
+    }
   });
 
   formulario.querySelector('button[type="submit"]').disabled = false;
 }
 
-configurarFormulario(formularioInclusao, (dados) => {
-  conteudos.push(dados);
+async function requisicao(url, metodo = "GET", dados) {
+  const resposta = await fetch(url, {
+    method: metodo, headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(dados)
+  });
+  const resultado = await resposta.json();
+  if (!resposta.ok) throw new Error(resultado.erro);
+  return resultado;
+}
+
+async function carregar() {
+  conteudos = await requisicao("/api/cursos");
+  atualizarLista();
+}
+configurarFormulario(formularioInclusao, async dados => {
+  const {id} = await requisicao("/api/cursos", "POST", dados);
+  conteudos.push({...dados, id, versao:1});
   voltarParaLista("Conteúdo incluído.");
 });
-
-configurarFormulario(formularioEdicao, (dados) => {
-  if (edicao.hidden || !selecionado) return;
-
-  Object.assign(selecionado, dados);
-  voltarParaLista("Alterações salvas na lista de demonstração.");
+configurarFormulario(formularioEdicao, async dados => {
+  const alvo = selecionado;
+  await requisicao("/api/cursos/"+alvo.id, "PUT", {...dados, versao:alvo.versao});
+  Object.assign(alvo, dados, {versao:alvo.versao+1});
+  voltarParaLista("Alterações salvas.");
 });
 
 document.querySelector("#abrir-inclusao").addEventListener("click", (evento) => {
@@ -133,10 +142,20 @@ document.querySelector("#abrir-inclusao").addEventListener("click", (evento) => 
   inclusao.focus();
 });
 
-confirmarExclusao.addEventListener("click", () => {
+confirmarExclusao.addEventListener("click", async () => {
   if (exclusao.hidden || !selecionado) return;
 
-  conteudos.splice(conteudos.indexOf(selecionado), 1);
+  const alvo = selecionado;
+  confirmarExclusao.disabled = true;
+  try {
+    await requisicao("/api/cursos/"+alvo.id, "DELETE", {versao:alvo.versao});
+  } catch (erro) {
+    exclusao.querySelector("[role=status]").textContent = erro.message;
+    return;
+  } finally {
+    confirmarExclusao.disabled = false;
+  }
+  conteudos.splice(conteudos.indexOf(alvo), 1);
   const mensagem = conteudos.length ? "Conteúdo excluído." : "Conteúdo excluído. A lista está vazia.";
   voltarParaLista(mensagem);
 });
@@ -149,4 +168,4 @@ document.querySelector("#cancelar-exclusao").addEventListener("click", (evento) 
   secaoLista.focus();
 });
 
-atualizarLista();
+carregar().catch(erro => { resultado.textContent = erro.message; });

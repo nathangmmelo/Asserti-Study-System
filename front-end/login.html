@@ -6,11 +6,12 @@
   <meta name="theme-color" content="#f4f8fe">
   <title>Entrar | ASSERTI</title>
   <link rel="stylesheet" href="css/styles.css">
+<script src="/js/acesso.js" defer></script>
 </head>
 <body class="pagina-acesso">
   <header class="cabecalho-acesso">
     <a class="marca" href="index.html">ASSERTI</a>
-    <nav class="menu-acesso" aria-label="Navegação principal"><a href="index.html#temas">Cursos</a><a href="perfil.html">Meu perfil</a></nav>
+
     <a class="link-voltar" href="index.html">Voltar ao início</a>
   </header>
   <main class="area-acesso">
@@ -19,19 +20,19 @@
       <h1 id="titulo-login">Entrar</h1>
       <p class="texto-acesso">Acesse sua conta para continuar aprendendo.</p>
 
-      <p class="aviso-demonstracao" id="aviso-login">Demonstração: o envio está desativado; os dados não serão enviados nem armazenados.</p>
+      <p class="aviso-demonstracao" id="aviso-login" role="status"></p>
 
-      <form class="formulario-acesso" aria-describedby="aviso-login" autocomplete="off">
+      <form method="post" class="formulario-acesso" aria-describedby="aviso-login" autocomplete="off">
         <div class="campo-acesso">
           <label for="email">E-mail</label>
-          <input id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
+          <input name="email" id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
         </div>
         <div class="campo-acesso">
           <label for="senha">Senha</label>
-          <input id="senha" type="password" autocomplete="new-password" placeholder="Digite sua senha" required>
+          <input name="senha" id="senha" type="password" autocomplete="current-password" placeholder="Digite sua senha" required>
         </div>
         <div class="linha-recuperacao"><a href="recuperar-acesso.html">Esqueci minha senha</a></div>
-        <button class="botao botao-formulario" type="button" disabled>Entrar</button>
+        <button class="botao botao-formulario" type="submit">Entrar</button>
       </form>
 
       <p class="alternativa-acesso">Ainda não tem conta? <a href="cadastro.html">Criar conta</a></p>

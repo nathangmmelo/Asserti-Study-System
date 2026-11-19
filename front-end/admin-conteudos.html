@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f8fe">
   <title>Administração de conteúdos | ASSERTI</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <script src="js/admin-conteudos.js" defer></script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <script src="/js/admin-conteudos.js" defer></script>
 </head>
 <body>
-  <header class="cabecalho">
-    <a class="marca" href="index.html" aria-label="ASSERTI, início">ASSERTI</a>
-    <nav class="menu" aria-label="Navegação principal">
-      <a href="index.html">Início</a>
-      <a href="index.html#temas">Cursos</a>
-      <a href="admin-conteudos.html" aria-current="page">Administração</a>
-    </nav>
-    <a class="botao botao-menor" href="perfil.html">Meu perfil</a>
-  </header>
+  <!-- header -->
 
   <main class="painel-aluno admin-conteudos" id="inicio">
     <nav class="trilha-aula" aria-label="Você está em">
@@ -27,12 +19,12 @@
     <section class="saudacao-painel" aria-labelledby="titulo-admin">
       <div>
         <h1 id="titulo-admin">Conteúdos</h1>
-        <p>Consulte e organize os conteúdos de demonstração dos cursos.</p>
+        <p>Consulte e organize os conteúdos dos cursos.</p>
       </div>
-      <span class="selo-demo">Área administrativa · demonstração</span>
+
     </section>
-    <p class="aviso-painel">Dados de demonstração. As alterações valem apenas enquanto esta página estiver aberta. Ao recarregar, a lista volta aos exemplos iniciais.</p>
-    <noscript><p class="aviso-painel">Ative o JavaScript para gerenciar os conteúdos de demonstração.</p></noscript>
+
+    <noscript></noscript>
 
     <section class="admin-secao" id="lista-conteudos" tabindex="-1" aria-labelledby="titulo-lista">
       <div class="cabecalho-painel">
@@ -52,41 +44,48 @@
 
     <section class="admin-formularios" aria-label="Formulários de conteúdo">
       <section class="cartao-admin" id="incluir-conteudo" tabindex="-1" aria-labelledby="titulo-incluir">
-        <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
+
         <h2 id="titulo-incluir">Incluir conteúdo</h2>
         <form class="formulario-admin" aria-describedby="aviso-incluir" autocomplete="off">
-          <p class="nota-admin" id="aviso-incluir">O novo conteúdo será incluído na lista de demonstração.</p>
+          <p class="nota-admin" id="aviso-incluir">O novo conteúdo será incluído na categoria escolhida na Home.</p>
           <div class="campo-admin"><label for="titulo-novo">Título</label><input id="titulo-novo" name="titulo" type="text" required></div>
-          <div class="campo-admin"><label for="tema-novo">Tema</label><select id="tema-novo" name="tema" required><option value="">Selecione um tema</option><option>Uso do Computador</option><option>Internet</option><option>E-mail</option><option>Produtividade</option><option>Segurança Digital</option><option>Serviços Digitais</option><option>Cidadania Digital</option></select></div>
+          <div class="campo-admin"><label for="tema-novo">Categoria</label><select id="tema-novo" name="tema" required><option value="">Selecione uma categoria</option>{{categorias}}</select></div>
           <div class="campo-admin"><label for="formato-novo">Formato</label><select id="formato-novo" name="formato" required><option value="">Selecione um formato</option><option>Texto</option><option>Vídeo</option></select></div>
           <div class="campo-admin"><label for="conteudo-novo">Conteúdo</label><textarea id="conteudo-novo" name="conteudo" rows="5" required></textarea></div>
-          <div class="campo-admin"><label for="url-nova">URL da fonte do vídeo <span class="ajuda-campo">(para conteúdo em vídeo)</span></label><input id="url-nova" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <button class="botao" type="submit" disabled>Incluir conteúdo</button>
+          <div class="campo-admin"><label for="url-nova">URL da fonte <span class="ajuda-campo">(obrigatória para vídeo)</span></label><input id="url-nova" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
+          <label class="campo-admin">Perguntas da aula
+            <span class="ajuda-campo">Uma por linha. Separe por | a pergunta, a resposta correta e as alternativas incorretas.</span>
+            <textarea name="atividade" rows="3" placeholder="Qual tecla separa palavras? | Espaço | Enter" required></textarea></label>
+          <p role="status"></p><button class="botao" type="submit" disabled>Incluir conteúdo</button>
         </form>
       </section>
 
       <section class="cartao-admin" id="editar-conteudo" tabindex="-1" aria-labelledby="titulo-editar" hidden>
-        <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
+
         <h2 id="titulo-editar">Editar conteúdo</h2>
         <form class="formulario-admin" aria-describedby="aviso-editar" autocomplete="off">
           <p class="nota-admin" id="aviso-editar">Conteúdo selecionado: <strong id="nome-edicao"></strong></p>
           <div class="campo-admin"><label for="titulo-edicao">Título</label><input id="titulo-edicao" name="titulo" type="text" required></div>
-          <div class="campo-admin"><label for="tema-edicao">Tema</label><select id="tema-edicao" name="tema" required><option>Uso do Computador</option><option>Internet</option><option>E-mail</option><option>Produtividade</option><option>Segurança Digital</option><option>Serviços Digitais</option><option>Cidadania Digital</option></select></div>
+          <div class="campo-admin"><label for="tema-edicao">Categoria</label><select id="tema-edicao" name="tema" required><option value="">Selecione uma categoria</option>{{categorias}}</select></div>
           <div class="campo-admin"><label for="formato-edicao">Formato</label><select id="formato-edicao" name="formato" required><option>Texto</option><option>Vídeo</option></select></div>
           <div class="campo-admin"><label for="conteudo-edicao">Conteúdo</label><textarea id="conteudo-edicao" name="conteudo" rows="5" required></textarea></div>
-          <div class="campo-admin"><label for="url-edicao">URL da fonte do vídeo <span class="ajuda-campo">(para conteúdo em vídeo)</span></label><input id="url-edicao" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <button class="botao" type="submit" disabled>Salvar alterações</button>
+          <div class="campo-admin"><label for="url-edicao">URL da fonte <span class="ajuda-campo">(obrigatória para vídeo)</span></label><input id="url-edicao" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
+          <label class="campo-admin">Perguntas da aula
+            <span class="ajuda-campo">Uma por linha. Separe por | a pergunta, a resposta correta e as alternativas incorretas.</span>
+            <textarea name="atividade" rows="3" placeholder="Qual tecla separa palavras? | Espaço | Enter" required></textarea></label>
+          <p role="status"></p><button class="botao" type="submit" disabled>Salvar alterações</button>
         </form>
       </section>
     </section>
 
     <section class="confirmacao-admin" id="confirmar-exclusao" tabindex="-1" aria-labelledby="titulo-confirmacao" hidden>
-      <p class="sobretitulo">OPERAÇÃO SIMULADA</p>
+
       <h2 id="titulo-confirmacao">Confirmar exclusão</h2>
-      <p>Deseja excluir o conteúdo <strong id="nome-exclusao"></strong> da lista de demonstração?</p>
-      <div class="acoes-confirmacao"><button class="botao botao-perigo" type="button" disabled>Excluir conteúdo</button><a class="botao-secundario" id="cancelar-exclusao" href="#lista-conteudos">Cancelar e voltar à lista</a></div>
+      <p>Deseja excluir o conteúdo <strong id="nome-exclusao"></strong> do catálogo?</p>
+      <p role="status"></p><div class="acoes-confirmacao"><button class="botao botao-perigo" type="button" disabled>Excluir conteúdo</button><a class="botao-secundario" id="cancelar-exclusao" href="#lista-conteudos">Cancelar e voltar à lista</a></div>
     </section>
     <p class="volta-home"><a href="index.html">← Voltar ao início</a></p>
   </main>
+  <!-- footer -->
 </body>
 </html>

@@ -1469,3 +1469,24 @@ kbd { padding: .1rem .35rem; color: var(--azul-escuro); background: #f2f5fa; bor
     scroll-margin-top: .5rem;
   }
 }
+
+.cabecalho { backdrop-filter: blur(10px); }
+.cabecalho form { margin: 0 0 0 auto; }
+.cabecalho button { cursor: pointer; border: 0; }
+:focus-visible { outline: 3px solid #995100; outline-offset: 3px; }
+.cartao-aula .texto-aula { white-space: pre-line; }
+.cartao-aula iframe, .cartao-aula video { width: 100%; aspect-ratio: 16/9; border: 0; }
+.painel-aluno progress { width: 100%; accent-color: var(--azul); }
+.cartao-pergunta fieldset + fieldset { margin-top: 1.5rem; }
+[role="status"]:empty { display: none; }
+@media (max-width: 50rem) {
+  .cabecalho { position: static; flex-wrap: wrap; }
+  .cabecalho .menu { width: 100%; order: 1; flex-wrap: wrap; margin: 0; gap: 0 1rem; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .botao, .menu a { transition: background-color 160ms ease, color 160ms ease; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
+}

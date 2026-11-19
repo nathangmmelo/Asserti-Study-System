@@ -5,44 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f8fe">
   <title>Criar conta | ASSERTI</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="/css/styles.css">
+<script src="/js/acesso.js" defer></script>
 </head>
 <body class="pagina-acesso">
-  <header class="cabecalho-acesso">
-    <a class="marca" href="index.html">ASSERTI</a>
-    <nav class="menu-acesso" aria-label="Navegação principal"><a href="index.html#temas">Cursos</a><a href="perfil.html">Meu perfil</a></nav>
-    <a class="link-voltar" href="index.html">Voltar ao início</a>
-  </header>
+  <!-- header -->
   <main class="area-acesso">
     <section class="cartao-acesso" aria-labelledby="titulo-cadastro">
       <p class="sobretitulo">SEU CAMINHO COMEÇA AQUI</p>
       <h1 id="titulo-cadastro">Criar conta</h1>
       <p class="texto-acesso">Preencha seus dados para começar.</p>
 
-      <p class="aviso-demonstracao" id="aviso-cadastro">Demonstração: o envio está desativado; os dados não serão enviados nem armazenados.</p>
+      <p class="aviso-demonstracao" id="aviso-cadastro" role="status"></p>
 
-      <form class="formulario-acesso" aria-describedby="aviso-cadastro" autocomplete="off">
+      <form method="post" class="formulario-acesso" aria-describedby="aviso-cadastro" autocomplete="off">
         <div class="campo-acesso">
           <label for="nome">Nome completo</label>
-          <input id="nome" type="text" autocomplete="off" placeholder="Digite seu nome completo" required>
+          <input name="nome" id="nome" type="text" autocomplete="off" placeholder="Digite seu nome completo" required>
         </div>
         <div class="campo-acesso">
           <label for="email">E-mail</label>
-          <input id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
+          <input name="email" id="email" type="email" autocomplete="off" inputmode="email" placeholder="voce@exemplo.com" required>
         </div>
         <div class="campo-acesso">
           <label for="senha">Senha</label>
-          <input id="senha" type="password" autocomplete="new-password" placeholder="Crie uma senha" required>
+          <input name="senha" id="senha" type="password" autocomplete="new-password" minlength="8" placeholder="Pelo menos 8 caracteres" required>
         </div>
         <div class="campo-acesso">
           <label for="confirmar-senha">Confirmar senha</label>
-          <input id="confirmar-senha" type="password" autocomplete="new-password" placeholder="Digite a senha novamente" required>
+          <input name="confirmar-senha" id="confirmar-senha" type="password" autocomplete="new-password" placeholder="Digite a senha novamente" required>
         </div>
-        <button class="botao botao-formulario" type="button" disabled>Criar conta</button>
+        <button class="botao botao-formulario" type="submit">Criar conta</button>
       </form>
 
       <p class="alternativa-acesso">Já tem uma conta? <a href="login.html">Entrar</a></p>
     </section>
   </main>
+  <!-- footer -->
 </body>
 </html>
