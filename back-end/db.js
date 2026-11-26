@@ -1,6 +1,6 @@
 import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync, readFileSync } from 'node:fs';
-import { randomBytes, scrypt, timingSafeEqual, createHash } from 'node:crypto';
+import { randomBytes, randomUUID, scrypt, timingSafeEqual, createHash } from 'node:crypto';
 import { promisify } from 'node:util';
 
 const derive = promisify(scrypt);
@@ -22,6 +22,10 @@ CREATE TABLE IF NOT EXISTS cursos (
 CREATE TABLE IF NOT EXISTS progresso (
  usuario INTEGER NOT NULL REFERENCES usuarios, curso INTEGER NOT NULL REFERENCES cursos,
  pontos INTEGER, PRIMARY KEY(usuario,curso));`);
+db.exec(`CREATE TABLE IF NOT EXISTS medalhas (
+ usuario INTEGER NOT NULL REFERENCES usuarios, curso INTEGER NOT NULL REFERENCES cursos,
+ pergunta TEXT NOT NULL, enunciado TEXT NOT NULL,
+ PRIMARY KEY (usuario,curso,pergunta))`);
 const inserir = sql('INSERT INTO cursos(titulo,tema,formato,conteudo,url,questoes,creditos,aviso) VALUES(?,?,?,?,?,?,?,?)');
 export function criarCurso(c) {
  return inserir.run(c.titulo,c.tema,c.formato,c.conteudo,c.url,JSON.stringify(c.questoes),JSON.stringify(c.creditos || []),c.aviso || '').lastInsertRowid;
@@ -31,6 +35,14 @@ try {
  if (!sql('PRAGMA user_version').get().user_version) {
    for (const curso of seed.cursos) criarCurso(curso);
    db.exec('PRAGMA user_version=1');
+ }
+ if (sql('PRAGMA user_version').get().user_version < 2) {
+   const atualizar = sql('UPDATE cursos SET questoes=? WHERE id=?');
+   for (const curso of sql('SELECT id,questoes FROM cursos').all()) {
+     const perguntas = JSON.parse(curso.questoes).map(q => ({...q, id:randomUUID()}));
+     atualizar.run(JSON.stringify(perguntas),curso.id);
+   }
+   db.exec('PRAGMA user_version=2');
  }
  db.exec('COMMIT');
 } catch (err) { db.exec('ROLLBACK'); throw err; }
@@ -60,9 +72,9 @@ export async function autenticar(email,senha) {
  return token;
 }
 export const digest = token => createHash('sha256').update(token).digest('hex');
-export function validarCurso(body) {
+export function validarCurso(body, anteriores = []) {
  const c = {};
- for (const key of ['titulo','tema','formato','conteudo','url','atividade']) {
+ for (const key of ['titulo','tema','formato','conteudo','url']) {
    exigir(typeof body[key] === 'string','Preencha os campos do curso.');
    c[key] = body[key].trim();
  }
@@ -70,12 +82,53 @@ export function validarCurso(body) {
  exigir(Object.values(categorias).includes(c.tema) && ['Texto','Vídeo'].includes(c.formato),'Categoria ou formato inválido.');
  exigir(c.formato !== 'Vídeo' || c.url,'Informe a URL do vídeo.');
  if (c.url) exigir(URL.canParse(c.url) && ['https:','http:'].includes(new URL(c.url).protocol),'Use uma URL http ou https.');
- c.questoes = c.atividade.split('\n').map((linha,i) => {
-   const [texto, ...opcoes] = linha.split('|').map(s => s.trim());
-   exigir(texto && opcoes.length >= 2 && opcoes.every(Boolean) && new Set(opcoes).size === opcoes.length,'Revise a pergunta da linha '+(i+1)+'.');
-   const correta = i % 2 === 0 ? 1 : 0;
-   if (correta) [opcoes[0],opcoes[1]] = [opcoes[1],opcoes[0]];
-   return {texto,opcoes,correta};
+ let perguntas = body.questoes;
+ // Compatibilidade com o formulário anterior, cuja primeira alternativa era correta.
+ if (perguntas === undefined && typeof body.atividade === 'string') {
+   perguntas = body.atividade.split('\n').map(linha => {
+     const [texto, ...opcoes] = linha.split('|');
+     return {texto, opcoes, correta:0};
+   });
+ }
+ exigir(Array.isArray(perguntas) && perguntas.length, 'Adicione pelo menos uma pergunta.');
+ const disponiveis = new Set(anteriores.map(q => q.id));
+ c.questoes = perguntas.map((q, i) => {
+   const erro = `Revise o enunciado, as alternativas e a resposta correta da pergunta ${i+1}.`;
+   exigir(q && typeof q.texto === 'string' && q.texto.trim() && Array.isArray(q.opcoes), erro);
+   exigir(q.opcoes.length >= 2 && q.opcoes.every(op => typeof op === 'string' && op.trim()), erro);
+   const opcoes = q.opcoes.map(op => op.trim());
+   exigir(new Set(opcoes).size === opcoes.length && Number.isInteger(q.correta)
+     && q.correta >= 0 && q.correta < opcoes.length, erro);
+   exigir(q.id === undefined || disponiveis.delete(q.id), 'Identificador de pergunta inválido.');
+   return {id:q.id ?? randomUUID(), texto:q.texto.trim(), opcoes, correta:q.correta};
  });
  return c;
+}
+
+export function corrigirAtividade(usuario, curso, versao, respostas) {
+ db.exec('BEGIN IMMEDIATE');
+ try {
+   const atual = sql('SELECT versao,questoes FROM cursos WHERE id=? AND ativo=1').get(curso);
+   exigir(atual && atual.versao === versao,'O curso mudou. Abra a aula novamente.',409);
+   const perguntas = JSON.parse(atual.questoes);
+   exigir(Array.isArray(respostas) && respostas.length === perguntas.length && perguntas.every((q,i) =>
+     Number.isInteger(respostas[i]) && respostas[i] >= 0 && respostas[i] < q.opcoes.length),'Responda a todas as perguntas.');
+   const progresso = sql('SELECT pontos FROM progresso WHERE usuario=? AND curso=?').get(usuario,curso);
+   exigir(progresso,'Abra a aula antes de responder.',409);
+   const registrar = sql('INSERT OR IGNORE INTO medalhas(usuario,curso,pergunta,enunciado) VALUES(?,?,?,?)');
+   let novas = 0;
+   const acertos = perguntas.map((q,i) => {
+     if (respostas[i] !== q.correta) return false;
+     novas += registrar.run(usuario,curso,q.id,q.texto).changes;
+     return true;
+   });
+   const total = sql('SELECT count(*) AS n FROM medalhas WHERE usuario=? AND curso=?').get(usuario,curso).n;
+   const pontos = Math.max(progresso.pontos ?? 0,total * 10);
+   sql('UPDATE progresso SET pontos=? WHERE usuario=? AND curso=?').run(pontos,usuario,curso);
+   db.exec('COMMIT');
+   return {acertos,novas,pontos,corretas:perguntas.map(q => q.opcoes[q.correta])};
+ } catch (erro) {
+   db.exec('ROLLBACK');
+   throw erro;
+ }
 }

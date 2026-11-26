@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { sql, categorias, exigir, criarConta, autenticar, digest, criarCurso, validarCurso } from './db.js';
+import { sql, categorias, exigir, criarConta, autenticar, digest, criarCurso, corrigirAtividade, validarCurso } from './db.js';
 import { asset, page, catalogo, perfil, aula, questionario } from './views.js';
 
 async function payload(req) {
@@ -18,7 +18,11 @@ async function payload(req) {
  } catch { exigir(false,'Dados inválidos.'); }
 }
 
-const assets = new Set(['/css/styles.css','/js/acesso.js','/js/atividade.js','/js/admin-conteudos.js']);
+const media = new Map([
+ ['/img/icones.svg','image/svg+xml'], ['/img/camadas.webp','image/webp'],
+ ['/fonts/instrument-Regular.woff','font/woff'], ['/fonts/instrument-Bold.woff','font/woff']
+]);
+const assets = new Set(['/css/styles.css','/css/paginas.css','/js/catalogo.js','/js/acesso.js','/js/atividade.js','/js/admin-conteudos.js']);
 const aliases = new Map([['/dashboard.html','/perfil.html'],['/primeiro-acesso.html','/perfil.html'],
  ['/aula-computador.html','/curso/28'],['/perguntas-aula.html','/curso/28/atividade']]);
 const cookie = 'Path=/; HttpOnly; SameSite=Lax';
@@ -31,6 +35,10 @@ async function handle(req,res) {
  const redirect = location => {res.writeHead(303,{Location:location});res.end();};
  res.setHeader('Cache-Control','no-store');
  res.setHeader('X-Content-Type-Options','nosniff');
+ if (get && media.has(path)) {
+   res.writeHead(200, {'Content-Type':media.get(path),'Cache-Control':'public, max-age=3600'});
+   return res.end(asset(path.slice(1), null));
+ }
  if (get && assets.has(path)) return send(path.endsWith('.css')?'text/css':'text/javascript',asset(path.slice(1)));
  if (get && aliases.has(path)) return redirect(aliases.get(path));
  if (!get && req.headers.origin) exigir(req.headers.origin === 'http://'+req.headers.host,'Origem inválida.',403);
@@ -66,9 +74,12 @@ async function handle(req,res) {
    if (get && path==='/admin-conteudos.html') return render('admin-conteudos.html',{categorias:Object.values(categorias).map(v=>'<option>'+v+'</option>').join('')});
    if (get && path==='/api/cursos') {
      const cursos = sql('SELECT id,titulo,tema,formato,conteudo,url,questoes,versao FROM cursos WHERE ativo=1 ORDER BY id').all();
-     return json(cursos.map(({questoes,...c})=>({...c,atividade:JSON.parse(questoes).map(q=>[q.texto,q.opcoes[q.correta],...q.opcoes.filter((_,i)=>i!==q.correta)].join(' | ')).join('\n')})));
+     return json(cursos.map(({questoes,...c})=>({...c,questoes:JSON.parse(questoes),atividade:JSON.parse(questoes).map(q=>[q.texto,q.opcoes[q.correta],...q.opcoes.filter((_,i)=>i!==q.correta)].join(' | ')).join('\n')})));
    }
-   if (method==='POST' && path==='/api/cursos') return json({id:criarCurso(validarCurso(await payload(req)))},201);
+   if (method==='POST' && path==='/api/cursos') {
+     const curso = validarCurso(await payload(req));
+     return json({id:criarCurso(curso),questoes:curso.questoes},201);
+   }
    const id = path.match(/^\/api\/cursos\/(\d+)$/)?.[1];
    if (id && ['PUT','DELETE'].includes(method)) {
      const body = await payload(req);
@@ -77,10 +88,11 @@ async function handle(req,res) {
      exigir(body.versao===c.versao,'O curso mudou. Recarregue a lista antes de continuar.',409);
      if (method==='DELETE') sql('UPDATE cursos SET ativo=0 WHERE id=?').run(id);
      else {
-       const d = validarCurso(body);
+       const d = validarCurso(body,JSON.parse(c.questoes));
        const mesmaFonte = d.url===c.url;
        sql(`UPDATE cursos SET titulo=?,tema=?,formato=?,conteudo=?,url=?,questoes=?,creditos=?,aviso=?,versao=versao+1 WHERE id=?`)
          .run(d.titulo,d.tema,d.formato,d.conteudo,d.url,JSON.stringify(d.questoes),mesmaFonte?c.creditos:'[]',mesmaFonte?c.aviso:'',id);
+       return json({ok:true,questoes:d.questoes});
      }
      return json({ok:true});
    }
@@ -95,17 +107,10 @@ async function handle(req,res) {
    if (match[2]) {
      if (!user && get) return redirect('/login.html');
      exigir(user,'Entre novamente para continuar.',401);
-     if (get) return progress().pontos===null ? render('perguntas-aula.html',questionario(c)) : redirect('/curso/'+c.id);
+     if (get) return render('perguntas-aula.html',questionario(c));
      if (method==='POST') {
        const {respostas,versao} = await payload(req);
-       const atual = sql('SELECT questoes,versao FROM cursos WHERE id=? AND ativo=1').get(c.id);
-       exigir(atual && atual.versao===versao,'O curso mudou. Abra a aula novamente.',409);
-       const q = JSON.parse(atual.questoes);
-       exigir(Array.isArray(respostas) && respostas.length===q.length && q.every((v,i)=>Number.isInteger(respostas[i]) && respostas[i]>=0 && respostas[i]<v.opcoes.length),'Responda a todas as perguntas.');
-       exigir(progress(),'Abra a aula antes de responder.',409);
-       const pontos = q.filter((v,i)=>v.correta===respostas[i]).length*10;
-       sql('UPDATE progresso SET pontos=? WHERE usuario=? AND curso=? AND pontos IS NULL').run(pontos,user.id,c.id);
-       return json(progress());
+       return json(corrigirAtividade(user.id,c.id,versao,respostas));
      }
    }
  }
