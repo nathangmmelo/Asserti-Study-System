@@ -1,112 +1,74 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f8fe">
-  <meta name="description" content="Materiais oficiais de inclusão digital para aprender no seu ritmo.">
-  <link rel="icon" href="data:,">
-  <title>ASSERTI | Inclusão Digital</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body class="home">
-  <a class="pular-conteudo" href="#inicio">Ir para o conteúdo</a>
-  <!-- header -->
-  <main id="inicio" tabindex="-1">
-    <section class="apresentacao" aria-labelledby="titulo-principal">
-      <div class="apresentacao-texto"><h1 id="titulo-principal">Aprenda de<br><span>onde estiver</span></h1><p class="resumo">Encontre materiais oficiais para usar computadores, internet e serviços online com mais autonomia e segurança.</p><a class="botao" href="#temas">Escolher uma categoria <span aria-hidden="true">→</span></a><ul class="beneficios"><li>Escolha um assunto</li><li>Acesse a fonte oficial</li><li>Aprenda no seu ritmo</li></ul></div>
-      <div class="ilustracao" role="img" aria-label="Ilustração de um computador com uma aula aberta"><div class="tela"><div class="barra-tela"><span></span><span></span><span></span></div><div class="conteudo-tela"><div class="icone-aula" aria-hidden="true">A</div><div class="linhas" aria-hidden="true"><i></i><i></i><i></i></div><div class="progresso" aria-hidden="true"><span></span></div><p>Aprenda no seu ritmo</p></div></div><div class="base-computador" aria-hidden="true"></div></div>
-    </section>
-    <section class="temas" id="temas" tabindex="-1" aria-labelledby="titulo-temas">
-      <div class="cabecalho-secao"><h2 id="titulo-temas">Escolha uma categoria</h2><p>Escolha o assunto que você quer aprender.</p></div>
-      <div class="lista-temas lista-categorias">
-        <a class="cartao-tema" href="#computador-internet"><span class="icone-tema" aria-hidden="true">⌨</span><h3>Computador e Internet</h3><p>Conheça o básico do computador e da navegação.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#cursos-formacao"><span class="icone-tema" aria-hidden="true">▤</span><h3>Cursos e formação continuada</h3><p>Encontre cursos gratuitos para continuar aprendendo.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#seguranca"><span class="icone-tema" aria-hidden="true">✓</span><h3>Segurança digital</h3><p>Cuide das suas contas, dados e informações.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#cidadania"><span class="icone-tema" aria-hidden="true">◎</span><h3>Cidadania digital</h3><p>Use a internet com respeito e responsabilidade.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#servicos-publicos"><span class="icone-tema" aria-hidden="true">⌂</span><h3>Serviços públicos digitais</h3><p>Saiba onde encontrar serviços do governo.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#email-google"><span class="icone-tema" aria-hidden="true">✉</span><h3>E-mail e ferramentas Google</h3><p>Crie, organize e compartilhe arquivos.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#produtividade-microsoft"><span class="icone-tema" aria-hidden="true">▦</span><h3>Produtividade Microsoft</h3><p>Use documentos, planilhas e apresentações.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-        <a class="cartao-tema" href="#videos"><span class="icone-tema" aria-hidden="true">▶</span><h3>Vídeos</h3><p>Assista a um vídeo complementar na fonte original.</p><span class="link-tema">Ver materiais <span aria-hidden="true">↓</span></span></a>
-      </div>
-    </section>
-    <section class="aulas-temas catalogo" id="catalogo" tabindex="-1" aria-labelledby="titulo-catalogo">
-      <div class="cabecalho-secao"><h2 id="titulo-catalogo">Materiais para estudar</h2><p>Os materiais são de outras instituições. Abra uma aula para estudar e responder à atividade.</p></div>
-      <article class="categoria-conteudo" id="computador-internet" tabindex="-1" aria-labelledby="titulo-computador-internet">
-        <header class="tema-resumo">
-          <h3 id="titulo-computador-internet">Computador e Internet</h3>
-          <p>Comece pelos recursos básicos do computador e pela navegação na internet.</p>
-        </header>
-        <div class="lista-materiais">{{computador-internet}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="cursos-formacao" tabindex="-1" aria-labelledby="titulo-cursos-formacao">
-        <header class="tema-resumo">
-          <h3 id="titulo-cursos-formacao">Cursos e formação continuada</h3>
-          <p>Explore plataformas de cursos gratuitos para seguir aprendendo.</p>
-        </header>
-        <div class="lista-materiais">{{cursos-formacao}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="seguranca" tabindex="-1" aria-labelledby="titulo-seguranca">
-        <header class="tema-resumo">
-          <h3 id="titulo-seguranca">Segurança digital</h3>
-          <p>Aprenda a reconhecer riscos e a proteger suas informações na internet.</p>
-        </header>
-        <div class="lista-materiais">{{seguranca}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="cidadania" tabindex="-1" aria-labelledby="titulo-cidadania">
-        <header class="tema-resumo">
-          <h3 id="titulo-cidadania">Cidadania digital</h3>
-          <p>Use a internet com responsabilidade, respeito e atenção às informações que circulam.</p>
-        </header>
-        <div class="lista-materiais">{{cidadania}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="servicos-publicos" tabindex="-1" aria-labelledby="titulo-servicos-publicos">
-        <header class="tema-resumo">
-          <h3 id="titulo-servicos-publicos">Serviços públicos digitais</h3>
-          <p>Saiba onde acessar serviços públicos e informações sobre a Conta gov.br.</p>
-        </header>
-        <div class="lista-materiais">{{servicos-publicos}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="email-google" tabindex="-1" aria-labelledby="titulo-email-google">
-        <header class="tema-resumo">
-          <h3 id="titulo-email-google">E-mail e ferramentas Google</h3>
-          <p>Consulte a ajuda oficial para criar uma conta, usar e-mail e organizar arquivos.</p>
-        </header>
-        <div class="lista-materiais">{{email-google}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="produtividade-microsoft" tabindex="-1" aria-labelledby="titulo-produtividade-microsoft">
-        <header class="tema-resumo">
-          <h3 id="titulo-produtividade-microsoft">Produtividade Microsoft</h3>
-          <p>Consulte a ajuda oficial para trabalhar com documentos, planilhas, apresentações e arquivos.</p>
-        </header>
-        <div class="lista-materiais">{{produtividade-microsoft}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-      <article class="categoria-conteudo" id="videos" tabindex="-1" aria-labelledby="titulo-videos">
-        <header class="tema-resumo">
-          <h3 id="titulo-videos">Vídeos</h3>
-          <p>Use este vídeo como material complementar. Ele será aberto na plataforma original.</p>
-        </header>
-        <div class="lista-materiais">{{videos}}
-        </div>
-        <a class="voltar-categorias" href="#temas">← Voltar às categorias</a>
-      </article>
-    </section>
-    <section class="sobre" id="projeto" tabindex="-1" aria-labelledby="titulo-projeto"><div><h2 id="titulo-projeto">O digital também é seu.</h2><p>Uma iniciativa de inclusão digital da ASSERTI, CPL·TI e UNIMAR — Fábrica de Projetos.</p></div><a href="#inicio" aria-label="Voltar ao início">↑</a></section>
-  </main>
-  <!-- footer -->
-</body>
-</html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#052659"><title>Inclusão digital | ASSERTI</title>
+<link rel="stylesheet" href="/css/styles.css"><script defer src="/js/catalogo.js"></script>
+</head><body class="home"><a class="pular-conteudo" href="#inicio">Ir para o conteúdo</a>
+<!-- header -->
+<main id="inicio">
+  <section class="capa" aria-labelledby="titulo-home">
+    <div class="capa-texto"><p class="rubrica luz">Plataforma de inclusão digital</p>
+      <h1 id="titulo-home">O digital<br><em>é seu.</em></h1>
+      <p class="entrada">Aprenda a usar o computador, a internet e os serviços digitais no seu ritmo.</p>
+      <a class="botao claro" href="#temas">Explorar categorias <svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-down"/></svg></a>
+    </div>
+    <div class="vitrine"><div class="orbita" aria-hidden="true"></div>
+      <img class="escultura" width="960" height="760" src="/img/camadas.webp" alt="" fetchpriority="high">
+      {{aulaInicial}}
+    </div>
+    <div class="capa-base"><div class="parceiros">ASSERTI <span>/</span> CPL·TI <span>/</span> UNIMAR</div>
+      <div class="indice-hero"><strong>{{totalCursos}}</strong> materiais <i></i><strong>{{totalCategorias}}</strong> categorias</div>
+    </div>
+  </section>
+  <section class="secao" id="temas" tabindex="-1"><header class="secao-titulo"><h2>Escolha uma categoria<span>.</span></h2><p>Por onde você quer começar?</p></header>
+    <div class="grade-temas"><a class="categoria-tile" href="#computador-internet">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#monitor"/></svg></span><strong>Computador e Internet</strong>
+    <span class="quantidade">{{n-computador-internet}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#cursos-formacao">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#graduation-cap"/></svg></span><strong>Cursos e formação continuada</strong>
+    <span class="quantidade">{{n-cursos-formacao}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#seguranca">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#shield-check"/></svg></span><strong>Segurança digital</strong>
+    <span class="quantidade">{{n-seguranca}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#cidadania">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#users"/></svg></span><strong>Cidadania digital</strong>
+    <span class="quantidade">{{n-cidadania}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#servicos-publicos">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#landmark"/></svg></span><strong>Serviços públicos digitais</strong>
+    <span class="quantidade">{{n-servicos-publicos}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#email-google">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#mail"/></svg></span><strong>E-mail e ferramentas Google</strong>
+    <span class="quantidade">{{n-email-google}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#produtividade-microsoft">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#layout-grid"/></svg></span><strong>Produtividade Microsoft</strong>
+    <span class="quantidade">{{n-produtividade-microsoft}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a><a class="categoria-tile" href="#videos">
+    <span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#circle-play"/></svg></span><strong>Vídeos</strong>
+    <span class="quantidade">{{n-videos}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a></div>
+  </section>
+  <section class="secao biblioteca" id="catalogo" tabindex="-1">
+    <header class="secao-titulo"><h2>Biblioteca de aulas<span>.</span></h2>
+      <label class="busca"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#search"/></svg><input type="search" id="busca" aria-label="Buscar aula ou categoria" placeholder="Buscar aula ou categoria"></label>
+    </header><p id="estado-busca" role="status"></p>
+    <div class="grupos"><details class="grupo-cursos" id="computador-internet" open>
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#monitor"/></svg></span><h3>Computador e Internet</h3><span class="quantidade">{{n-computador-internet}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Comece pelos recursos básicos do computador e pela navegação na internet.</p><div class="materiais">{{computador-internet}}</div></div>
+  </details><details class="grupo-cursos" id="cursos-formacao" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#graduation-cap"/></svg></span><h3>Cursos e formação continuada</h3><span class="quantidade">{{n-cursos-formacao}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Explore plataformas de cursos gratuitos para seguir aprendendo.</p><div class="materiais">{{cursos-formacao}}</div></div>
+  </details><details class="grupo-cursos" id="seguranca" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#shield-check"/></svg></span><h3>Segurança digital</h3><span class="quantidade">{{n-seguranca}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Aprenda a reconhecer riscos e a proteger suas informações na internet.</p><div class="materiais">{{seguranca}}</div></div>
+  </details><details class="grupo-cursos" id="cidadania" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#users"/></svg></span><h3>Cidadania digital</h3><span class="quantidade">{{n-cidadania}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Use a internet com responsabilidade, respeito e atenção às informações que circulam.</p><div class="materiais">{{cidadania}}</div></div>
+  </details><details class="grupo-cursos" id="servicos-publicos" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#landmark"/></svg></span><h3>Serviços públicos digitais</h3><span class="quantidade">{{n-servicos-publicos}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Saiba onde acessar serviços públicos e informações sobre a Conta gov.br.</p><div class="materiais">{{servicos-publicos}}</div></div>
+  </details><details class="grupo-cursos" id="email-google" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#mail"/></svg></span><h3>E-mail e ferramentas Google</h3><span class="quantidade">{{n-email-google}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Consulte a ajuda oficial para criar uma conta, usar e-mail e organizar arquivos.</p><div class="materiais">{{email-google}}</div></div>
+  </details><details class="grupo-cursos" id="produtividade-microsoft" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#layout-grid"/></svg></span><h3>Produtividade Microsoft</h3><span class="quantidade">{{n-produtividade-microsoft}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Consulte a ajuda oficial para trabalhar com documentos, planilhas, apresentações e arquivos.</p><div class="materiais">{{produtividade-microsoft}}</div></div>
+  </details><details class="grupo-cursos" id="videos" >
+    <summary><span class="glifo"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#circle-play"/></svg></span><h3>Vídeos</h3><span class="quantidade">{{n-videos}}</span><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chevron-down"/></svg></summary>
+    <div class="grupo-corpo"><p>Use este vídeo como material complementar. Ele será aberto na plataforma original.</p><div class="materiais">{{videos}}</div></div>
+  </details></div>
+  </section>
+  <section class="credito" id="projeto"><h2>Sobre o projeto</h2><p>Uma iniciativa de inclusão digital da ASSERTI, CPL·TI e UNIMAR — Fábrica de Projetos.</p></section>
+</main>
+<!-- footer --></body></html>

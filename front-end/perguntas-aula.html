@@ -1,10 +1,25 @@
 <!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Atividade | ASSERTI</title><link rel="stylesheet" href="/css/styles.css">
-<script src="/js/atividade.js" defer></script></head><body><!-- header -->
-<main class="pagina-perguntas" id="conteudo">
-  <nav class="trilha-aula" aria-label="Você está em"><a href="/curso/{{id}}">{{titulo}}</a> / Atividade</nav>
-  <header class="cabecalho-perguntas"><h1>Teste o que você aprendeu</h1><p>Marque uma resposta por pergunta. O primeiro envio conclui o curso.</p></header>
-  <form class="cartao-pergunta" id="atividade" data-versao="{{versao}}">{{campos}}<button class="botao" type="submit">Concluir atividade</button></form>
-  <p role="status" id="resultado"></p><a class="link-painel" href="/perfil.html">Ver meu perfil</a>
-</main><!-- footer --></body></html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#052659"><title>Atividade da aula | ASSERTI</title>
+<link rel="stylesheet" href="/css/styles.css"><script defer src="/js/atividade.js"></script>
+</head><body class="quiz"><!-- header -->
+<main class="mesa-quiz">
+ <a class="voltar" href="/curso/{{id}}">← {{titulo}}</a>
+ <header class="titulo-quiz"><p class="rubrica luz">Atividade da aula</p><h1>Teste seus conhecimentos<span>.</span></h1>
+ <p>Escolha uma alternativa por pergunta. Cada primeiro acerto rende uma medalha.</p></header>
+ <form id="atividade" novalidate data-versao="{{versao}}">
+   <div class="passos"><span>Atividade da aula</span><strong id="passo" aria-live="polite"></strong></div>
+   <progress id="barra" aria-label="Pergunta atual"></progress>
+   <div class="folha-quiz">{{campos}}</div>
+   <div class="comandos-quiz"><button class="secundario" id="anterior" type="button">← Anterior</button>
+    <button class="botao" id="avancar" type="submit">Próxima pergunta →</button></div>
+   <a class="voltar" href="/curso/{{id}}">Sair sem enviar</a>
+ </form><p role="status" id="aviso"></p>
+ <section id="resultado" class="resultado" hidden tabindex="-1"><p class="rubrica luz">Atividade finalizada</p><h2>Resultado da atividade</h2>
+ <div class="placar"><div><strong id="acertos"></strong>Questões corretas</div><div><strong id="taxa"></strong>Aproveitamento</div></div>
+ <p id="premios"></p><div class="acoes"><a class="botao" id="repetir" href="/curso/{{id}}/atividade">Refazer atividade</a>
+ <a class="secundario" href="/curso/{{id}}">Voltar para a aula</a> <a href="/perfil.html">Ver meu perfil</a></div>
+ <h3>Correção das questões</h3><ol id="correcao"></ol></section>
+</main>
+<!-- footer --></body></html>

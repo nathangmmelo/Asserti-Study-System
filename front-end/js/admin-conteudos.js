@@ -18,8 +18,85 @@ const confirmarExclusao = exclusao.querySelector("button");
 
 let selecionado = null;
 
+let sequencia = 0;
+
+function numerarPerguntas(lista) {
+  [...lista.children].forEach((campo, i) => {
+    campo.querySelector("legend").textContent = `Pergunta ${i + 1}`;
+    campo.querySelector(".remover-pergunta").disabled = lista.childElementCount === 1;
+  });
+}
+
+function adicionarPergunta(lista, pergunta = {}) {
+  const campo = document.querySelector("#modelo-pergunta").content.firstElementChild.cloneNode(true);
+  const grupo = "gabarito-" + (++sequencia);
+  if (pergunta.id) campo.dataset.id = pergunta.id;
+  campo.querySelector(".enunciado").value = pergunta.texto || "";
+  const alternativas = campo.querySelector(".alternativas");
+
+  function numerarAlternativas() {
+    [...alternativas.children].forEach((linha, i) => {
+      const nome = "Alternativa " + (i + 1);
+      linha.querySelector("span").textContent = nome;
+      linha.querySelector("input[type=radio]").setAttribute("aria-label", nome + " correta");
+      const remover = linha.querySelector("button");
+      remover.setAttribute("aria-label", "Remover alternativa " + (i + 1));
+      remover.disabled = alternativas.childElementCount <= 2;
+    });
+  }
+
+  function adicionarAlternativa(texto = "", correta = false) {
+    const linha = document.querySelector("#modelo-alternativa").content.firstElementChild.cloneNode(true);
+    const resposta = linha.querySelector(".texto-alternativa");
+    resposta.value = texto;
+    const radio = linha.querySelector("input[type=radio]");
+    radio.name = grupo;
+    radio.checked = correta;
+    linha.querySelector("button").onclick = () => {
+      linha.remove();
+      numerarAlternativas();
+      campo.querySelector(".adicionar-alternativa").focus();
+    };
+    alternativas.append(linha);
+    numerarAlternativas();
+    return resposta;
+  }
+
+  (pergunta.opcoes || ["", ""]).forEach((texto, i) => adicionarAlternativa(texto, pergunta.correta === i));
+  campo.querySelector(".adicionar-alternativa").onclick = () => adicionarAlternativa().focus();
+  campo.querySelector(".remover-pergunta").onclick = () => {
+    campo.remove();
+    numerarPerguntas(lista);
+    lista.parentElement.querySelector(".adicionar-pergunta").focus();
+  };
+  lista.append(campo);
+  numerarPerguntas(lista);
+  return campo;
+}
+
+function montarPerguntas(formulario, perguntas) {
+  const lista = formulario.querySelector(".perguntas");
+  lista.replaceChildren();
+  perguntas.forEach(q => adicionarPergunta(lista, q));
+  formulario.querySelector(".adicionar-pergunta").onclick = () =>
+    adicionarPergunta(lista).querySelector(".enunciado").focus();
+}
+
+function lerPerguntas(formulario) {
+  return [...formulario.querySelectorAll(".editor-pergunta")].map(campo => ({
+    id: campo.dataset.id,
+    texto: campo.querySelector(".enunciado").value.trim(),
+    opcoes: [...campo.querySelectorAll(".texto-alternativa")].map(input => input.value.trim()),
+    correta: [...campo.querySelectorAll("input[type=radio]")].findIndex(input => input.checked)
+  }));
+}
+
+montarPerguntas(formularioInclusao, [{}]);
+
 function limparSelecao() {
   selecionado = null;
+  secaoLista.hidden = false;
+  inclusao.hidden = true;
   edicao.hidden = true;
   exclusao.hidden = true;
 }
@@ -31,6 +108,7 @@ function selecionarConteudo(evento, item, secao) {
   resultado.textContent = "";
 
   if (secao === edicao) {
+    montarPerguntas(formularioEdicao, item.questoes);
     nomeEdicao.textContent = item.titulo;
 
     for (const [campo, valor] of Object.entries(item)) {
@@ -43,6 +121,7 @@ function selecionarConteudo(evento, item, secao) {
     nomeExclusao.textContent = `“${item.titulo}”`;
   }
 
+  secaoLista.hidden = true;
   secao.hidden = false;
   secao.focus();
 }
@@ -73,6 +152,8 @@ function voltarParaLista(mensagem) {
 }
 
 function configurarFormulario(formulario, salvar) {
+  const voltar = formulario.querySelector(".fechar-formulario");
+  voltar.addEventListener("click", () => voltarParaLista(""));
   formulario.addEventListener("input", (evento) => {
     evento.target.setCustomValidity("");
   });
@@ -91,18 +172,22 @@ function configurarFormulario(formulario, salvar) {
 
     const dados = {};
     for (const [campo, valor] of new FormData(formulario)) {
-      dados[campo] = valor.trim();
+      if (!campo.startsWith("gabarito-")) dados[campo] = valor.trim();
     }
+    dados.questoes = lerPerguntas(formulario);
     const botao = formulario.querySelector('button[type="submit"]');
     botao.disabled = true;
+    voltar.disabled = true;
     try {
       await salvar(dados);
       formulario.reset();
+      montarPerguntas(formulario, [{}]);
     } catch (erro) {
       const aviso = formulario.querySelector("[role=status]");
       aviso.textContent = erro.message;
     } finally {
       botao.disabled = false;
+      voltar.disabled = false;
     }
   });
 
@@ -124,14 +209,14 @@ async function carregar() {
   atualizarLista();
 }
 configurarFormulario(formularioInclusao, async dados => {
-  const {id} = await requisicao("/api/cursos", "POST", dados);
-  conteudos.push({...dados, id, versao:1});
+  const {id,questoes} = await requisicao("/api/cursos", "POST", dados);
+  conteudos.push({...dados, id, questoes, versao:1});
   voltarParaLista("Conteúdo incluído.");
 });
 configurarFormulario(formularioEdicao, async dados => {
   const alvo = selecionado;
-  await requisicao("/api/cursos/"+alvo.id, "PUT", {...dados, versao:alvo.versao});
-  Object.assign(alvo, dados, {versao:alvo.versao+1});
+  const {questoes} = await requisicao("/api/cursos/"+alvo.id, "PUT", {...dados, versao:alvo.versao});
+  Object.assign(alvo, dados, {questoes, versao:alvo.versao+1});
   voltarParaLista("Alterações salvas.");
 });
 
@@ -139,6 +224,8 @@ document.querySelector("#abrir-inclusao").addEventListener("click", (evento) => 
   evento.preventDefault();
   limparSelecao();
   resultado.textContent = "";
+  secaoLista.hidden = true;
+  inclusao.hidden = false;
   inclusao.focus();
 });
 

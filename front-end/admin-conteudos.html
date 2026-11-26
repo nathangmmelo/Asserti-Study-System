@@ -24,7 +24,24 @@
 
     </section>
 
-    <noscript></noscript>
+    <template id="modelo-pergunta">
+      <fieldset class="editor-pergunta">
+        <legend></legend>
+        <label class="campo-admin">Enunciado<input class="enunciado" required></label>
+        <div class="alternativas"></div>
+        <div class="acoes-editor">
+          <button type="button" class="acao-editor adicionar-alternativa">Adicionar alternativa</button>
+          <button type="button" class="acao-editor remover-pergunta">Remover pergunta</button>
+        </div>
+      </fieldset>
+    </template>
+    <template id="modelo-alternativa">
+      <div class="alternativa">
+        <label class="campo-admin"><span></span><input class="texto-alternativa" required></label>
+        <label class="escolha-correta"><input type="radio" required> Correta</label>
+        <button type="button" class="acao-editor remover-alternativa">Remover</button>
+      </div>
+    </template>
 
     <section class="admin-secao" id="lista-conteudos" tabindex="-1" aria-labelledby="titulo-lista">
       <div class="cabecalho-painel">
@@ -43,7 +60,7 @@
     </section>
 
     <section class="admin-formularios" aria-label="Formulários de conteúdo">
-      <section class="cartao-admin" id="incluir-conteudo" tabindex="-1" aria-labelledby="titulo-incluir">
+      <section hidden class="cartao-admin" id="incluir-conteudo" tabindex="-1" aria-labelledby="titulo-incluir">
 
         <h2 id="titulo-incluir">Incluir conteúdo</h2>
         <form class="formulario-admin" aria-describedby="aviso-incluir" autocomplete="off">
@@ -53,10 +70,16 @@
           <div class="campo-admin"><label for="formato-novo">Formato</label><select id="formato-novo" name="formato" required><option value="">Selecione um formato</option><option>Texto</option><option>Vídeo</option></select></div>
           <div class="campo-admin"><label for="conteudo-novo">Conteúdo</label><textarea id="conteudo-novo" name="conteudo" rows="5" required></textarea></div>
           <div class="campo-admin"><label for="url-nova">URL da fonte <span class="ajuda-campo">(obrigatória para vídeo)</span></label><input id="url-nova" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <label class="campo-admin">Perguntas da aula
-            <span class="ajuda-campo">Uma por linha. Separe por | a pergunta, a resposta correta e as alternativas incorretas.</span>
-            <textarea name="atividade" rows="3" placeholder="Qual tecla separa palavras? | Espaço | Enter" required></textarea></label>
-          <p role="status"></p><button class="botao" type="submit" disabled>Incluir conteúdo</button>
+          <section class="editor-perguntas">
+            <h3>Perguntas da aula</h3>
+            <p>Escreva as alternativas e marque uma resposta correta por pergunta.</p>
+            <div class="perguntas"></div>
+            <button type="button" class="acao-editor adicionar-pergunta">Adicionar pergunta</button>
+          </section>
+          <p role="status"></p>
+          <div class="acoes-editor"><button class="botao" type="submit" disabled>Incluir conteúdo</button>
+            <button class="acao-editor fechar-formulario" type="button">Voltar à lista</button>
+          </div>
         </form>
       </section>
 
@@ -70,10 +93,16 @@
           <div class="campo-admin"><label for="formato-edicao">Formato</label><select id="formato-edicao" name="formato" required><option>Texto</option><option>Vídeo</option></select></div>
           <div class="campo-admin"><label for="conteudo-edicao">Conteúdo</label><textarea id="conteudo-edicao" name="conteudo" rows="5" required></textarea></div>
           <div class="campo-admin"><label for="url-edicao">URL da fonte <span class="ajuda-campo">(obrigatória para vídeo)</span></label><input id="url-edicao" name="url" type="url" inputmode="url" placeholder="https://exemplo.com/video"></div>
-          <label class="campo-admin">Perguntas da aula
-            <span class="ajuda-campo">Uma por linha. Separe por | a pergunta, a resposta correta e as alternativas incorretas.</span>
-            <textarea name="atividade" rows="3" placeholder="Qual tecla separa palavras? | Espaço | Enter" required></textarea></label>
-          <p role="status"></p><button class="botao" type="submit" disabled>Salvar alterações</button>
+          <section class="editor-perguntas">
+            <h3>Perguntas da aula</h3>
+            <p>Escreva as alternativas e marque uma resposta correta por pergunta.</p>
+            <div class="perguntas"></div>
+            <button type="button" class="acao-editor adicionar-pergunta">Adicionar pergunta</button>
+          </section>
+          <p role="status"></p>
+          <div class="acoes-editor"><button class="botao" type="submit" disabled>Salvar alterações</button>
+            <button class="acao-editor fechar-formulario" type="button">Voltar à lista</button>
+          </div>
         </form>
       </section>
     </section>

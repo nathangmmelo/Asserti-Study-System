@@ -1,62 +1,23 @@
 <!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f8fe">
-  <title>Meu perfil | ASSERTI</title>
-  <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-  <!-- header -->
-
-  <main class="painel-aluno perfil-aluno" id="inicio">
-    <section class="saudacao-painel" aria-labelledby="titulo-perfil">
-      <div>
-        <h1 id="titulo-perfil">Meu perfil</h1>
-        <p>Confira os dados da conta, os cursos e as medalhas.</p>
-      </div>
-
-    </section>
-
-    <section class="cartao-perfil" aria-label="Dados da pessoa estudante">
-      <div class="avatar-perfil" aria-hidden="true">{{inicial}}</div>
-      <dl class="dados-perfil">
-        <div>
-          <dt>Nome completo</dt>
-          <dd>{{nome}}</dd>
-        </div>
-        <div>
-          <dt>E-mail</dt>
-          <dd>{{email}}</dd>
-        </div>
-      </dl>
-
-      <div class="configuracoes-perfil">
-        <button class="botao" type="button" disabled aria-describedby="status-configuracoes">Configurações</button>
-        <span id="status-configuracoes">Em breve</span>
-      </div>
-    </section>
-
-    <section class="bloco-painel progresso-painel"><h2>Meu progresso</h2>
-      <p class="texto-progresso">{{concluidos}} de {{total}} cursos concluídos</p>
-      <progress aria-label="Cursos concluídos" max="{{maximo}}" value="{{concluidos}}"></progress>
-      <p class="legenda-progresso">{{pontos}} pontos</p></section>
-
-    <section class="bloco-painel secao-perfil" aria-labelledby="titulo-cursos">
-      <h2 id="titulo-cursos">Cursos em andamento</h2>
-      <ul class="lista-perfil">{{andamento}}</ul>
-      <p class="estado-vazio-perfil">Você ainda não iniciou nenhum curso</p>
-    </section>
-
-    <section class="bloco-painel secao-perfil" aria-labelledby="titulo-medalhas">
-      <h2 id="titulo-medalhas">Medalhas</h2>
-      <ul class="lista-perfil medalhas-perfil" role="list">{{medalhas}}</ul>
-      <p class="estado-vazio-perfil">Suas medalhas aparecerão aqui quando você concluir um curso</p>
-    </section>
-
-    <p class="volta-home"><a href="/#catalogo">← Voltar ao catálogo</a></p>
-  </main>
-  <!-- footer -->
-</body>
-</html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#052659"><title>Meu perfil | ASSERTI</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head><body class="perfil"><!-- header -->
+<main class="secao painel-perfil">
+ <aside class="identidade vidro"><div class="capa-perfil" aria-hidden="true"></div><div class="identidade-corpo">
+  <div class="avatar">{{inicial}}</div><p class="rubrica">Meu perfil</p><h1>{{nome}}</h1><p class="email">{{email}}</p>
+  <nav class="atalhos" aria-label="Seções do perfil"><a href="#progresso"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#chart-no-axes-column"/></svg> Meu progresso</a>
+  <a href="#em-andamento"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#book-open"/></svg> Cursos em andamento</a><a href="#medalhas"><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#medal"/></svg> Medalhas</a></nav>
+  <div class="config"><button disabled><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#settings"/></svg> Configurações</button><small>Em breve</small></div>
+ </div></aside>
+ <div class="visao-perfil"><section class="progresso-hero" id="progresso">
+ <div><p class="rubrica luz">Visão geral</p><h2>Meu progresso<span>.</span></h2><p>{{concluidos}} de {{total}} cursos concluídos</p><a class="botao claro" href="/#catalogo">Explorar aulas <svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#arrow-up-right"/></svg></a></div>
+ <div class="anel" style="--percentual:{{percentual}}%" aria-label="{{percentual}} por cento concluído"><strong>{{percentual}}%</strong></div></section>
+ <div class="metricas"><article><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#book-open"/></svg><strong>{{emCurso}}</strong><span>Em andamento</span></article><article><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#zap"/></svg><strong>{{pontos}}</strong><span>Pontos</span></article><article><svg class="icon" aria-hidden="true" focusable="false"><use href="/img/icones.svg#medal"/></svg><strong>{{nMedalhas}}</strong><span>Medalhas</span></article></div>
+ <section id="em-andamento" class="painel-lista"><h2>Cursos em andamento</h2>
+ <ul class="lista-perfil">{{andamento}}</ul><p class="vazio">Você ainda não iniciou nenhum curso. <a href="/#catalogo">Escolher uma aula →</a></p></section>
+ <section id="medalhas" class="painel-lista"><h2>Minhas medalhas</h2>
+ <ul class="lista-perfil medalhas-perfil">{{medalhas}}</ul><p class="vazio">Acerte uma pergunta de uma atividade para conquistar sua primeira medalha.</p></section></div>
+</main>
+<!-- footer --></body></html>
